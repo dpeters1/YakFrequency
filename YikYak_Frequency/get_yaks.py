@@ -11,7 +11,7 @@ import os.path
 carleton = Location(45.3856, -75.6959)
 
 # Create user object at Carleton U with given userid
-user = User(carleton, "21C6CA60E3AA43C4B8C18B943394E111")
+user = User(carleton, "6B6A473324AC4300B694BDA6C6287BE1")
 today = datetime.date.today()
 time = datetime.datetime.now()
 savePath = "C:\Users\Dominic\Documents\YakFreq\Word_Freq_Data"
