@@ -8,7 +8,8 @@ carleton = Location(45.3856, -75.6959)
 user = User(carleton, "6B6A473324AC4300B694BDA6C6287BE1")
 today = datetime.date.today()
 time = datetime.datetime.now()
-savePath = os.path.relpath("../Word_Freq_Data")
+savePath = os.path.relpath("../Word_Freq_Data",
+                           os.path.dirname(os.path.abspath(__file__)))
 fileName = os.path.join(savePath, "wordData_" + str(today.month) +
                         "-" + str(today.day) + ".txt")
 yestFile = os.path.join(savePath, "wordData_" + str(today.month) +
@@ -17,6 +18,7 @@ contentLen = len(user.get_yaks())
 wordData = []
 
 file = open(fileName, "a+")  # Create file if not present
+print savePath
 
 if file.readline() == "" and time.hour == 0:  # Continued from yesterday
     yesterdayFile = open(yestFile, "r")

@@ -1,6 +1,7 @@
 import os.path
 
-savePath = "C:\Users\Dominic\Documents\YakFreq\Word_Freq_Data"
+savePath = os.path.relpath("../Word_Freq_Data",
+                           os.path.dirname(os.path.abspath(__file__)))
 
 stopwords = ['a', 'about', 'above', 'across', 'after', 'afterwards']
 stopwords += ['again', 'against', 'all', 'almost', 'alone', 'along']
