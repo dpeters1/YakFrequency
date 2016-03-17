@@ -1,6 +1,7 @@
+from sys import argv
 from sort import sortYaks
 
-sortedYaks = sortYaks(3, 17, 11)  # Returns tuple containing sorted word list
+sortedYaks = sortYaks(int(argv[1]), int(argv[2]), int(argv[3]))
 # corresponding word frequency list
 if sortedYaks != 0:
     for num in range(0, len(sortedYaks[0])):
