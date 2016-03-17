@@ -1,4 +1,6 @@
+import os.path
 
+savePath = "C:\Users\Dominic\Documents\YakFreq\Word_Freq_Data"
 
 stopwords = ['a', 'about', 'above', 'across', 'after', 'afterwards']
 stopwords += ['again', 'against', 'all', 'almost', 'alone', 'along']
@@ -82,3 +84,32 @@ def sortFreqDict(freqdict):
 
 def removeStopwords(wordlist, stopwords):
     return [w for w in wordlist if w not in stopwords]
+
+
+def sortYaks(month, day, time):
+    ''' Returns tuple containing sorted word list
+        corresponding word frequency list '''
+    file = open(os.path.join(savePath, "wordData_" + str(month) +
+                "-" + str(day) + ".txt"), "r")
+
+    try:
+        dataSet = file.readlines()[time].split()
+        if dataSet == ['Empty\n]']:
+            print "No yaks posted at this hour"
+        else:
+            for i, word in enumerate(dataSet):
+                for char in word:
+                    if ord(char) == 39:
+                        dataSet.pop(i)
+
+            wordString = " ".join(removeStopwords(dataSet, stopwords))
+            filtered = stripNonAlphaNum(wordString)
+            dictionary = (wordListToFreqDict(filtered))
+            sortedict = sortFreqDict(dictionary)
+            sortedNum = (zip(*sortedict))[0]
+            sortedWord = (zip(*sortedict))[1]
+            return(sortedWord, sortedNum)
+
+    except IndexError:
+        print "Index error; yaks were not collected at this time"
+        return 0

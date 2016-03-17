@@ -8,7 +8,7 @@ carleton = Location(45.3856, -75.6959)
 user = User(carleton, "6B6A473324AC4300B694BDA6C6287BE1")
 today = datetime.date.today()
 time = datetime.datetime.now()
-savePath = "C:\Users\Dominic\Documents\YakFreq\Word_Freq_Data"
+savePath = os.path.relpath("../Word_Freq_Data")
 fileName = os.path.join(savePath, "wordData_" + str(today.month) +
                         "-" + str(today.day) + ".txt")
 yestFile = os.path.join(savePath, "wordData_" + str(today.month) +

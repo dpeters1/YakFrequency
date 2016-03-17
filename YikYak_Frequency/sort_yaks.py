@@ -1,10 +1,12 @@
 from sort import *
 import os.path
 
-savePath = "C:\Users\Dominic\Documents\YakFreq\Word_Freq_Data"
+savePath = os.path.relpath("../Word_Freq_Data")
 
 
 def sortYaks(month, day, time):
+    ''' Returns tuple containing sorted word list
+        corresponding word frequency list '''
     file = open(os.path.join(savePath, "wordData_" + str(month) +
                 "-" + str(day) + ".txt"), "r")
 
@@ -28,10 +30,11 @@ def sortYaks(month, day, time):
 
     except IndexError:
         print "Index error; yaks were not collected at this time"
+        return 0
 
-sorted = sortYaks(3, 17, 1)  # Returns tuple containing sorted word list and
+sortedYaks = sortYaks(3, 17, 11)  # Returns tuple containing sorted word list
 # corresponding word frequency list
-if sorted != 0:
-    for num in range(0, len(sorted[0])):
-        if sorted[1][num] > 1:
-            print("%s : %d" % (sorted[0][num], sorted[1][num]))
+if sortedYaks != 0:
+    for num in range(0, len(sortedYaks[0])):
+        if sortedYaks[1][num] > 1:
+            print("%s : %d" % (sortedYaks[0][num], sortedYaks[1][num]))
