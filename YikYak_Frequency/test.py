@@ -1,5 +1,8 @@
-import datetime
+import re
 
-time = datetime.datetime.now()
+wordList = ['hello', 'test?', 'cow', 'moo']
 
-print(time.hour)
+regex = re.compile(r'([^\s\w]|_)+',)
+
+print [regex.sub("", word) for word in wordList]
+

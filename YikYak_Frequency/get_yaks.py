@@ -1,10 +1,4 @@
-
-# Should be run at the end of every hour (xx:59)
-# to retreive the yaks from that hour.
-
 from yaklient import *
-from sort import *
-import re
 import datetime
 import os.path
 
@@ -19,69 +13,55 @@ fileName = os.path.join(savePath, "wordData_" + str(today.month) +
                         "-" + str(today.day) + ".txt")
 yestFile = os.path.join(savePath, "wordData_" + str(today.month) +
                         "-" + str(today.day-1) + ".txt")
-collection = ''
-firstYak = ''
 contentLen = len(user.get_yaks())
-newContent = False
+wordData = []
 
 file = open(fileName, "a+")  # Create file if not present
 
 if file.readline() == "" and time.hour == 0:  # Continued from yesterday
     yesterdayFile = open(yestFile, "r")
-    firstLine = file.readlines()[46][0:10]
+    for i in xrange(0, 24):
+        yesterdayFile.seek(0, 0)
+        lastDataSet = yesterdayFile.readlines()[23-i].split("%^$ ")
+        if lastDataSet != ['Empty\n']:
+            print "Going back %d hour(s) for last yaks" % (i+1)
+            break
     print("New file, continuing from yesterday")
-    yestFile.close()
+    yesterdayFile.close()
+
 elif file.readline() == "":  # Empty file
-    firstLine = ""
-    newContent = True
+    lastDataSet = []
     print("New file, non-continuing")
     file.seek(0, 0)  # Bring cursor back to start of file
-    for i in range(0, time.hour * 2):
-        file.write("Empty \n")
+    for i in xrange(0, time.hour):
+        file.write("Empty\n")  # No yaks for all previous hours
 else:
-    file.seek(0, 0)
-    firstLine = file.readlines()[time.hour*2-2][0:10]
+    # Iterate through previous hours' yaks until latest non-empty hour is found
+    for i in xrange(0, time.hour):
+        file.seek(0, 0)
+        lastDataSet = file.readlines()[time.hour-1-i].split("%^$ ")
+        if lastDataSet != ['Empty\n']:
+            print "Going back %d hour(s) for last yaks" % (i+1)
+            break
     print("Using existing file")
 # first line is from last hour
 
+for i, yak in enumerate(user.get_yaks()):
+    post = str(yak)
+    post = post[0:post.index('(')].lower()  # Remove karma rating
 
-# Get yaks, iterate through them, and print them
-for i, yaks in enumerate(user.get_yaks()):
-    post = str(yaks)
-    post = post[0:post.index('(')]  # Remove karma rating
-    # print((post.lower()+"         ")[0:10] + "|" + firstLine + "|")
-
-    # Appends the new set of words to the last set, without duplicates
-    #                     _>Handles posts less than 10 chars
-    if (post.lower()+"         ")[0:10] == firstLine:
-        if i == 0:  # If first post is the same as last time
-            newContent = False
-            firstYak = firstLine
-            print("No new content")
+    if i+1 == contentLen:
+        break  # Skip the yak about updating the app
+    if post in lastDataSet:
+        if wordData == []:
+            print "No new yaks"
         else:
-            newContent = True
-            print("New content")
+            print "New yaks: %s" % "|".join(wordData)
         break
+    wordData.append(post)
 
-    if i == 0:
-        firstYak = post.lower()[0:10] + "         "
-    if i+1 != contentLen:  # Skip the yak about updating the app
-        collection += post.lower()  # Create one big string of posts
+if wordData != []:
+    print "Adding new yaks to file"
+    file.write("%^$ ".join(wordData) + "\n")
 
-# Remove any words with apostraphes
-fullWordList = collection.split()
-for i, word in enumerate(fullWordList):
-    for char in word:
-        if ord(char) == 39:
-            fullWordList.pop(i)
-# Strip everything but alpha-numberic chars
-wordList = removeStopwords(fullWordList, stopwords)
-fullWordString = " ".join(wordList)
-regexFullWordString = re.sub(r'([^\s\w]|_)+', '', fullWordString)
-
-if newContent:
-    print("New content added to file!")
-    file.write(firstYak + "\n" + regexFullWordString + "\n")
-if not newContent:  # Still add the first post identifier to that hour
-    file.write(firstYak + "\n" + "Empty" + "\n")
 file.close()

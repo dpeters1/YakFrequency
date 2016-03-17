@@ -29,7 +29,7 @@ stopwords += ['more', 'moreover', 'most', 'mostly', 'move', 'much']
 stopwords += ['must', 'my', 'myself', 'name', 'namely', 'neither', 'never']
 stopwords += ['nevertheless', 'next', 'nine', 'no', 'nobody', 'none']
 stopwords += ['noone', 'nor', 'not', 'nothing', 'now', 'nowhere', 'of']
-stopwords += ['off', 'often', 'on','once', 'one', 'only', 'onto', 'or']
+stopwords += ['off', 'often', 'on', 'once', 'one', 'only', 'onto', 'or']
 stopwords += ['other', 'others', 'otherwise', 'our', 'ours', 'ourselves']
 stopwords += ['out', 'over', 'own', 'part', 'per', 'perhaps', 'please']
 stopwords += ['put', 'rather', 're', 's', 'same', 'see', 'seem', 'seemed']
@@ -53,16 +53,13 @@ stopwords += ['within', 'without', 'would', 'yet', 'you', 'your']
 stopwords += ['yours', 'yourself', 'yourselves', 'like', 'just']
 
 
-# Given a text string, remove all non-alphanumeric
-# characters (using Unicode definition of alphanumeric).
-
 def stripNonAlphaNum(text):
     import re
     return re.compile(r'\W+', re.UNICODE).split(text)
 
-
 # Given a list of words, return a dictionary of
 # word-frequency pairs.
+
 
 def wordListToFreqDict(wordlist):
     wordfreq = [wordlist.count(p) for p in wordlist]
@@ -71,6 +68,7 @@ def wordListToFreqDict(wordlist):
 
 # Sort a dictionary of word-frequency pairs in
 # order of descending frequency.
+
 
 def sortFreqDict(freqdict):
     aux = [(freqdict[key], key) for key in freqdict]
