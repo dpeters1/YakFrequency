@@ -17,7 +17,7 @@ def sortYaks(month, day, time):
                 for char in word:
                     if ord(char) == 39:
                         dataSet.pop(i)
-            print dataSet
+
             wordString = " ".join(removeStopwords(dataSet, stopwords))
             filtered = stripNonAlphaNum(wordString)
             dictionary = (wordListToFreqDict(filtered))
@@ -29,7 +29,7 @@ def sortYaks(month, day, time):
     except IndexError:
         print "Index error; yaks were not collected at this time"
 
-sorted = sortYaks(3, 16, 20)  # Returns tuple containing sorted word list and
+sorted = sortYaks(3, 17, 1)  # Returns tuple containing sorted word list and
 # corresponding word frequency list
 if sorted != 0:
     for num in range(0, len(sorted[0])):
