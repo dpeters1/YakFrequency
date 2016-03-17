@@ -1,8 +1,9 @@
 from flask import Flask, render_template
 import sys
 import os.path
-sys.path.append(os.path.relpath("../YikYak_Frequency",
-                                os.path.dirname(os.path.abspath(__file__))))
+sys.path.append(os.path.join(os.path.split(os.path.dirname(os.path.abspath
+                                                           (__file__)))[0],
+                             "YikYak_Frequency"))
 from sort import sortYaks
 
 app = Flask(__name__)

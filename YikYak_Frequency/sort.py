@@ -1,7 +1,7 @@
 import os.path
 
-savePath = os.path.relpath("../Word_Freq_Data",
-                           os.path.dirname(os.path.abspath(__file__)))
+base_dir = os.path.split(os.path.dirname(os.path.abspath(__file__)))[0]
+savePath = os.path.join(base_dir, "Word_Freq_Data")
 
 stopwords = ['a', 'about', 'above', 'across', 'after', 'afterwards']
 stopwords += ['again', 'against', 'all', 'almost', 'alone', 'along']
