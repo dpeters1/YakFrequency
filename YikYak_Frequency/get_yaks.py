@@ -18,9 +18,8 @@ contentLen = len(user.get_yaks())
 wordData = []
 
 file = open(fileName, "a+")  # Create file if not present
-print savePath
 
-if file.readline() == "" and time.hour == 0:  # Continued from yesterday
+if os.path.getsize(fileName) == 0 and time.hour == 0:  # Cont from yesterday
     yesterdayFile = open(yestFile, "r")
     for i in xrange(0, 24):
         yesterdayFile.seek(0, 0)
@@ -31,7 +30,7 @@ if file.readline() == "" and time.hour == 0:  # Continued from yesterday
     print("New file, continuing from yesterday")
     yesterdayFile.close()
 
-elif file.readline() == "":  # Empty file
+elif os.path.getsize(fileName) == 0:
     lastDataSet = []
     print("New file, non-continuing")
     file.seek(0, 0)  # Bring cursor back to start of file
