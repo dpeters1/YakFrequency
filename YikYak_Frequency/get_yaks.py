@@ -61,7 +61,10 @@ for i, yak in enumerate(user.get_yaks()):
         break
     wordData.append(post)
 
-if wordData != []:
+if wordData == []:
+    file.write("Empty\n")
+
+else:
     print "Adding new yaks to file"
     file.write("%^$ ".join(wordData) + "\n")
 
