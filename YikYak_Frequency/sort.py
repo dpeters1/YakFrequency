@@ -95,7 +95,7 @@ def sortYaks(month, day, time):
 
     try:
         dataSet = file.readlines()[time].split()
-        if dataSet == ['Empty\n]']:
+        if dataSet == ['Empty']:
             print "No yaks posted at this hour"
         else:
             for i, word in enumerate(dataSet):
@@ -103,13 +103,13 @@ def sortYaks(month, day, time):
                     if ord(char) == 39:
                         dataSet.pop(i)
 
+
             wordString = " ".join(removeStopwords(dataSet, stopwords))
             filtered = stripNonAlphaNum(wordString)
             dictionary = (wordListToFreqDict(filtered))
-            sortedict = sortFreqDict(dictionary)
-            sortedNum = (zip(*sortedict))[0]
-            sortedWord = (zip(*sortedict))[1]
-            return(sortedWord, sortedNum)
+            sortedTuple = sortFreqDict(dictionary)
+
+            return zip(*sortedTuple)
 
     except IndexError:
         print "Index error; yaks were not collected at this time"

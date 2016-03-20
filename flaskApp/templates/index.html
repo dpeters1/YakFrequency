@@ -1,14 +1,48 @@
 <!DOCTYPE html>
- 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<!--
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+-->
 <head>
     <title>Python Flask Testing</title>
- 
- 
 </head>
  
 <body>
-<p> {{ yaks }} </p>
-<p> test </p>
+    <div id="test" style="width: 60%; height: 350px; margin: auto; border: 3px solid black">
+    </div>
+
+<link rel="stylesheet" href="http://mistic100.github.io/jQCloud/dist/jqcloud2/dist/jqcloud.min.css">
+<script src="http://mistic100.github.io/jQCloud/dist/jqcloud2/dist/jqcloud.min.js"></script>
+
+
+    <script type="text/javascript">
+
+        var words = [
+            {text: "{{ yaks[1][0] }}", weight: "{{ yaks[0][0] }}"},
+            {text: "{{ yaks[1][1] }}", weight: "{{ yaks[0][1] }}"},
+            {text: "{{ yaks[1][2] }}", weight: "{{ yaks[0][2] }}"},
+            {text: "{{ yaks[1][3] }}", weight: "{{ yaks[0][3] }}"},
+            {text: "{{ yaks[1][4] }}", weight: "{{ yaks[0][4] }}"},
+            {text: "{{ yaks[1][5] }}", weight: "{{ yaks[0][5] }}"},
+            {text: "{{ yaks[1][6] }}", weight: "{{ yaks[0][6] }}"},
+            {text: "{{ yaks[1][7] }}", weight: "{{ yaks[0][7] }}"},
+            {text: "{{ yaks[1][8] }}", weight: "{{ yaks[0][8] }}"},
+            {text: "{{ yaks[1][9] }}", weight: "{{ yaks[0][9] }}"},
+            {text: "{{ yaks[1][10] }}", weight: "{{ yaks[0][10] }}"},
+            {text: "{{ yaks[1][11] }}", weight: "{{ yaks[0][11] }}"},
+            {text: "{{ yaks[1][12] }}", weight: "{{ yaks[0][12] }}"},
+            {text: "{{ yaks[1][13] }}", weight: "{{ yaks[0][13] }}"},
+            {text: "{{ yaks[1][14] }}", weight: "{{ yaks[0][14] }}"},
+            {text: "{{ yaks[1][15] }}", weight: "{{ yaks[0][15] }}"},
+            {text: "{{ yaks[1][16] }}", weight: "{{ yaks[0][16] }}"},
+            {text: "{{ yaks[1][17] }}", weight: "{{ yaks[0][17] }}"},
+            {text: "{{ yaks[1][18] }}", weight: "{{ yaks[0][18] }}"},
+            {text: "{{ yaks[1][19] }}", weight: "{{ yaks[0][19] }}"},
+
+        ];
+
+        $('#test').jQCloud(words);
+    </script>
 </body>
  
 </html>

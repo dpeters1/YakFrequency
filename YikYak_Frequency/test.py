@@ -1,6 +1,6 @@
-import os.path
+from sort import sortYaks
 
-base_dir = os.path.split(os.path.dirname(os.path.abspath(__file__)))[0]
-word_dir = os.path.join(base_dir, "Word_Freq_Data")
+sortedTuple = sortYaks(3, 18, 25)
 
-print word_dir
+print sortedTuple
+

@@ -11,12 +11,14 @@ app = Flask(__name__)
 
 @app.route("/")
 def main():
-    sort = sortYaks(3, 17, 15)
-    numbers = sort[1]
-    numbers = [x for x in numbers if x > 1]
-    # YakFreq = zip(sort[0], numbers)
-    YakFreq = sort[0][0:len(numbers)]
-    return render_template("index.html", yaks=YakFreq)
+    return render_template("index.html", yaks="No period selected")
+
+
+@app.route("/<int:day>/<int:time>")
+def time(day, time):
+    sortedTuple = sortYaks(3, day, time)
+    return render_template("index.html", yaks=sortedTuple)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
