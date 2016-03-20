@@ -103,7 +103,6 @@ def sortYaks(month, day, time):
                     if ord(char) == 39:
                         dataSet.pop(i)
 
-
             wordString = " ".join(removeStopwords(dataSet, stopwords))
             filtered = stripNonAlphaNum(wordString)
             dictionary = (wordListToFreqDict(filtered))
