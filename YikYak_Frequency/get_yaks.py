@@ -66,6 +66,6 @@ if wordData == []:
 
 else:
     print "Adding new yaks to file"
-    file.write("%^$ ".join(wordData) + "\n")
+    file.write("%^$ ".join(wordData) + "%^$ " + "\n")
 
 file.close()

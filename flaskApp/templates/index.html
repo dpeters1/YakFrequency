@@ -1,48 +1,97 @@
 <!DOCTYPE html>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<!--
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<script src="{{ url_for('static', filename='javascript/jQRangeSlider-min.js') }}"></script>
+<script src="http://mistic100.github.io/jQCloud/dist/jqcloud2/dist/jqcloud.min.js"></script>
+<script src="{{ url_for('static', filename='javascript/jQDateRangeSlider-min.js') }}"></script>
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
--->
+<link href="https://ghusse.github.io/jQRangeSlider/stable/css/iThing.css" rel="stylesheet" media="screen">
+
 <head>
     <title>Python Flask Testing</title>
 </head>
  
+<header>
+    <div class=wrap_left>
+        <h3 id = "left_header">YikYak Word Frequency</h3>
+    </div>  
+</header>
+
 <body>
-    <div id="test" style="width: 60%; height: 350px; margin: auto; border: 3px solid black">
+    <div id="left_content">
+        <p style="margin-bottom: -50px;"><b>Time of Day</b></p>
+        <div id="basicSlider" style="margin:50px 0 40px 0"></div>
+        <p><b>Days of Week</b></p>
+        <div id="daySlider" style="margin-bottom: 40px"></div>
+        <p><b>Weeks of Year</b></p>
+        <div id="dateSlider"></div>
+        <script type="text/javascript">
+            var currentDate = new Date();
+            var weekday = new Array(7);
+            weekday[0]=  "Sunday";
+            weekday[1] = "Monday";
+            weekday[2] = "Tuesday";
+            weekday[3] = "Wednesday";
+            weekday[4] = "Thursday";
+            weekday[5] = "Friday";
+            weekday[6] = "Saturday";
+
+            $("#basicSlider").rangeSlider({
+                defaultValues:{min: currentDate.getHours()-5, max: currentDate.getHours()},
+                bounds: {min: 0, max: 23},
+                formatter:function(val){
+                        integerVal = Math.round(val);
+                        if (integerVal > 12){
+                            return integerVal.toString()-12 + " PM";
+                        }
+                        else if (integerVal == 12){
+                            return "12 PM";
+                        }
+                        else if (integerVal == 0){
+                            return "12 AM";
+                        }
+                        else{
+                            return integerVal.toString() + " AM";
+                        }
+                }
+            });
+            $("#daySlider").rangeSlider({
+                defaultValues:{min: currentDate.getDay()-1, max: currentDate.getDay()},
+                bounds: {min: 0, max: 6},
+                formatter:function(val){
+                    return weekday[Math.round(val)];
+                }
+            });
+            var currentWeek = currentDate.getDate()-currentDate.getDay();
+            $("#dateSlider").dateRangeSlider({
+                defaultValues:{min: new Date(2016, 2, currentWeek), max: new Date(2016, 2, currentWeek+7)},
+                bounds: {min: new Date(2016, 2, 6), max: new Date(2016, 6, 31)},
+                step: {days: 7}
+            });
+        </script>
     </div>
-
-<link rel="stylesheet" href="http://mistic100.github.io/jQCloud/dist/jqcloud2/dist/jqcloud.min.css">
-<script src="http://mistic100.github.io/jQCloud/dist/jqcloud2/dist/jqcloud.min.js"></script>
-
-
+    <div id="cloud">
+    </div>
     <script type="text/javascript">
-
-        var words = [
-            {text: "{{ yaks[1][0] }}", weight: "{{ yaks[0][0] }}"},
-            {text: "{{ yaks[1][1] }}", weight: "{{ yaks[0][1] }}"},
-            {text: "{{ yaks[1][2] }}", weight: "{{ yaks[0][2] }}"},
-            {text: "{{ yaks[1][3] }}", weight: "{{ yaks[0][3] }}"},
-            {text: "{{ yaks[1][4] }}", weight: "{{ yaks[0][4] }}"},
-            {text: "{{ yaks[1][5] }}", weight: "{{ yaks[0][5] }}"},
-            {text: "{{ yaks[1][6] }}", weight: "{{ yaks[0][6] }}"},
-            {text: "{{ yaks[1][7] }}", weight: "{{ yaks[0][7] }}"},
-            {text: "{{ yaks[1][8] }}", weight: "{{ yaks[0][8] }}"},
-            {text: "{{ yaks[1][9] }}", weight: "{{ yaks[0][9] }}"},
-            {text: "{{ yaks[1][10] }}", weight: "{{ yaks[0][10] }}"},
-            {text: "{{ yaks[1][11] }}", weight: "{{ yaks[0][11] }}"},
-            {text: "{{ yaks[1][12] }}", weight: "{{ yaks[0][12] }}"},
-            {text: "{{ yaks[1][13] }}", weight: "{{ yaks[0][13] }}"},
-            {text: "{{ yaks[1][14] }}", weight: "{{ yaks[0][14] }}"},
-            {text: "{{ yaks[1][15] }}", weight: "{{ yaks[0][15] }}"},
-            {text: "{{ yaks[1][16] }}", weight: "{{ yaks[0][16] }}"},
-            {text: "{{ yaks[1][17] }}", weight: "{{ yaks[0][17] }}"},
-            {text: "{{ yaks[1][18] }}", weight: "{{ yaks[0][18] }}"},
-            {text: "{{ yaks[1][19] }}", weight: "{{ yaks[0][19] }}"},
-
-        ];
-
-        $('#test').jQCloud(words);
+        var words = []
+            {% for i in range(60)%}
+                words.push({text: "{{ yaks[1][i] }}", weight: "{{ yaks[0][i] }}"})
+            {% endfor %}
+ 
+        $('#cloud').jQCloud(words, {
+            autoResize: true
+        });
     </script>
 </body>
- 
+
+<footer>
+    <div class="wrap_left">
+        <p id="left_footer">Created by Dominic Peters</p>
+    </div>
+    <div class="wrap_right">
+        <a href="https://github.com/dpeters1/YakFrequency"><p id="right_footer">Source Code</p></a>
+    </div>
+</footer>
+
 </html>

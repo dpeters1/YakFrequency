@@ -97,6 +97,7 @@ def sortYaks(month, day, time):
         dataSet = file.readlines()[time].split()
         if dataSet == ['Empty']:
             print "No yaks posted at this hour"
+            return 0
         else:
             for i, word in enumerate(dataSet):
                 for char in word:

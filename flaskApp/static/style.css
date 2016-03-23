@@ -1,6 +1,85 @@
-div {
-    margin: auto;
-    width: 60%;
-    border: 3px solid #73AD21;
-    height: 500px;
+*{
+    font-family:Helvetica,Arial,sans-serif;
 }
+html{
+    position: relative;
+    min-height: 100%;
+}
+header{
+    position: absolute;
+    top:0px;
+    left: 0px;
+    height: 50px;
+    width: 100%;
+    background-color: #00ccff;
+}
+footer{
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 50px;
+    background-color: #00ccff;
+}
+#left_header{
+    text-align: center;
+    color:#f2f2f2;
+    margin-top: 15px;
+}
+#left_footer{
+    text-align: center;
+    color:#f2f2f2;
+    margin-top: 17px;
+}
+#right_footer{
+    text-align: center;
+    margin-top: 17px;
+}
+.wrap_left{
+    position: absolute;
+    height: 50px;
+    width: 250px;
+    background-color: rgba(0,0,0,0.3);
+}
+.wrap_right{
+    position: absolute;
+    height: 50px;
+    width: 150px;
+    right:0px;
+    background-color: rgba(0,0,0,0.3);
+}
+#left_content{
+    float: left;
+    padding: 30px 50px 50px 50px;
+    width: 35%;
+    height: 400px;
+    margin: 190px auto auto 2%;
+    background-color: #b3f0ff;
+    /*border: 2px solid black;*/
+}
+#cloud {
+    float: right;
+    width: 53%;
+    height: 700px;
+    margin: 100px 2% auto auto;
+    /*border: 2px solid black;*/
+}
+@media only screen
+and (max-width: 1080px) {
+    #left_content{
+    display: inline-block;
+    width: 90%;
+    height: 700px;
+    margin-top: 50px;
+    border: 2px solid black;
+}
+#cloud {
+    display: inline-block;
+    width: 90%;
+    height: 700px;
+    margin-top: 50px;
+    border: 2px solid black;
+}
+}
+
+div.jqcloud{overflow:hidden;position:relative}div.jqcloud span{padding:0}div.jqcloud{font-family:Helvetica,Arial,sans-serif;font-size:10px;line-height:normal}div.jqcloud a{font-size:inherit;text-decoration:none}div.jqcloud span.w10{font-size:550%}div.jqcloud span.w9{font-size:500%}div.jqcloud span.w8{font-size:450%}div.jqcloud span.w7{font-size:400%}div.jqcloud span.w6{font-size:350%}div.jqcloud span.w5{font-size:300%}div.jqcloud span.w4{font-size:250%}div.jqcloud span.w3{font-size:200%}div.jqcloud span.w2{font-size:150%}div.jqcloud span.w1{font-size:100%}div.jqcloud{color:#09f}div.jqcloud a{color:inherit}div.jqcloud a:hover,div.jqcloud span.w10,div.jqcloud span.w8,div.jqcloud span.w9{color:#0cf}div.jqcloud span.w7{color:#39d}div.jqcloud span.w6{color:#90c5f0}div.jqcloud span.w5{color:#90a0dd}div.jqcloud span.w4{color:#90c5f0}div.jqcloud span.w3{color:#a0ddff}div.jqcloud span.w2{color:#9ce}div.jqcloud span.w1{color:#aab5f0}
