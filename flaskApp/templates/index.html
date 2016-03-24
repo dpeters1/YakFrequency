@@ -11,7 +11,7 @@
 <head>
     <title>Python Flask Testing</title>
 </head>
- 
+
 <header>
     <div class=wrap_left>
         <h3 id = "left_header">YikYak Word Frequency</h3>
@@ -19,66 +19,24 @@
 </header>
 
 <body>
-    <div id="left_content">
-        <p style="margin-bottom: -50px;"><b>Time of Day</b></p>
-        <div id="basicSlider" style="margin:50px 0 40px 0"></div>
-        <p><b>Days of Week</b></p>
-        <div id="daySlider" style="margin-bottom: 40px"></div>
-        <p><b>Weeks of Year</b></p>
-        <div id="dateSlider"></div>
-        <script type="text/javascript">
-            var currentDate = new Date();
-            var weekday = new Array(7);
-            weekday[0]=  "Sunday";
-            weekday[1] = "Monday";
-            weekday[2] = "Tuesday";
-            weekday[3] = "Wednesday";
-            weekday[4] = "Thursday";
-            weekday[5] = "Friday";
-            weekday[6] = "Saturday";
-
-            $("#basicSlider").rangeSlider({
-                defaultValues:{min: currentDate.getHours()-5, max: currentDate.getHours()},
-                bounds: {min: 0, max: 23},
-                formatter:function(val){
-                        integerVal = Math.round(val);
-                        if (integerVal > 12){
-                            return integerVal.toString()-12 + " PM";
-                        }
-                        else if (integerVal == 12){
-                            return "12 PM";
-                        }
-                        else if (integerVal == 0){
-                            return "12 AM";
-                        }
-                        else{
-                            return integerVal.toString() + " AM";
-                        }
-                }
-            });
-            $("#daySlider").rangeSlider({
-                defaultValues:{min: currentDate.getDay()-1, max: currentDate.getDay()},
-                bounds: {min: 0, max: 6},
-                formatter:function(val){
-                    return weekday[Math.round(val)];
-                }
-            });
-            var currentWeek = currentDate.getDate()-currentDate.getDay();
-            $("#dateSlider").dateRangeSlider({
-                defaultValues:{min: new Date(2016, 2, currentWeek), max: new Date(2016, 2, currentWeek+7)},
-                bounds: {min: new Date(2016, 2, 6), max: new Date(2016, 6, 31)},
-                step: {days: 7}
-            });
-        </script>
-    </div>
-    <div id="cloud">
-    </div>
+    <div id="content">
+        <div id="left_content">
+            <p><b>Time of Day</b></p>
+            <div id="basicSlider"></div>
+            <p><b>Days of Week</b></p>
+            <div id="daySlider"></div>
+            <p><b>Weeks of Year</b></p>
+            <div id="dateSlider"></div>
+            <script src="{{ url_for('static', filename='javascript/sliderFunctions.js') }}"></script>
+        </div>
+        <div id="cloud"></div>
+    </div> 
     <script type="text/javascript">
         var words = []
-            {% for i in range(60)%}
-                words.push({text: "{{ yaks[1][i] }}", weight: "{{ yaks[0][i] }}"})
-            {% endfor %}
- 
+        {% for i in range(60)%}
+        words.push({text: "{{ yaks[1][i] }}", weight: "{{ yaks[0][i] }}"})
+        {% endfor %}
+
         $('#cloud').jQCloud(words, {
             autoResize: true
         });

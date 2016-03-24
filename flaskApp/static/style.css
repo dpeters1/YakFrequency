@@ -48,36 +48,49 @@ footer{
     right:0px;
     background-color: rgba(0,0,0,0.3);
 }
+#content{
+    position: relative;
+    width: 90%;
+    height: 87vh;
+    margin: 50px auto auto auto;
+    /*border: 2px solid black;*/
+
+}
 #left_content{
-    float: left;
-    padding: 30px 50px 50px 50px;
+    position: absolute;
+    top: 46%;
+    padding: 20px 35px 15px 35px;
     width: 35%;
     height: 400px;
-    margin: 190px auto auto 2%;
+    margin-top: -200px;
     background-color: #b3f0ff;
     /*border: 2px solid black;*/
 }
 #cloud {
-    float: right;
-    width: 53%;
-    height: 700px;
-    margin: 100px 2% auto auto;
+    position: absolute;
+    top: 50%;
+    width: 60%;
+    min-width: 768px;
+    height: 650px;
+    margin-top: -345px;
+
+    right: 0px;
     /*border: 2px solid black;*/
 }
 @media only screen
 and (max-width: 1080px) {
+    #content{
+        height: 1000px;
+    }
     #left_content{
-    display: inline-block;
+    position: absolute;
     width: 90%;
-    height: 700px;
-    margin-top: 50px;
     border: 2px solid black;
 }
 #cloud {
-    display: inline-block;
+    position: absolute;
+    top: 500px;
     width: 90%;
-    height: 700px;
-    margin-top: 50px;
     border: 2px solid black;
 }
 }
