@@ -87,14 +87,15 @@ def removeStopwords(wordlist, stopwords):
     return [w for w in wordlist if w not in stopwords]
 
 
-def sortYaks(month, day, time):
+def sortYaks(month, day, hour):
     ''' Returns tuple containing sorted word list
-        corresponding word frequency list '''
+    corresponding word frequency list '''
+
     file = open(os.path.join(savePath, "wordData_" + str(month) +
                 "-" + str(day) + ".txt"), "r")
 
     try:
-        dataSet = file.readlines()[time].split()
+        dataSet = file.readlines()[hour].split()
         if dataSet == ['Empty']:
             print "No yaks posted at this hour"
             return 0

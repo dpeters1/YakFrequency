@@ -48,9 +48,13 @@ footer{
     right:0px;
     background-color: rgba(0,0,0,0.3);
 }
+label{
+    float: right;
+    margin-top: -20px;
+}
 #content{
     position: relative;
-    width: 90%;
+    width: 100%;
     height: 87vh;
     margin: 50px auto auto auto;
     /*border: 2px solid black;*/
@@ -60,39 +64,28 @@ footer{
     position: absolute;
     top: 46%;
     padding: 20px 35px 15px 35px;
-    width: 35%;
+    width: 30%;
     height: 400px;
     margin-top: -200px;
+    margin-left: 7%;
     background-color: #b3f0ff;
     /*border: 2px solid black;*/
+}
+#left_content p{
+    margin: 30px 0 -1px;
 }
 #cloud {
     position: absolute;
     top: 50%;
     width: 60%;
-    min-width: 768px;
     height: 650px;
     margin-top: -345px;
-
-    right: 0px;
+    margin-left: 40%;
     /*border: 2px solid black;*/
 }
 @media only screen
 and (max-width: 1080px) {
-    #content{
-        height: 1000px;
-    }
-    #left_content{
-    position: absolute;
-    width: 90%;
-    border: 2px solid black;
-}
-#cloud {
-    position: absolute;
-    top: 500px;
-    width: 90%;
-    border: 2px solid black;
-}
+    
 }
 
 div.jqcloud{overflow:hidden;position:relative}div.jqcloud span{padding:0}div.jqcloud{font-family:Helvetica,Arial,sans-serif;font-size:10px;line-height:normal}div.jqcloud a{font-size:inherit;text-decoration:none}div.jqcloud span.w10{font-size:550%}div.jqcloud span.w9{font-size:500%}div.jqcloud span.w8{font-size:450%}div.jqcloud span.w7{font-size:400%}div.jqcloud span.w6{font-size:350%}div.jqcloud span.w5{font-size:300%}div.jqcloud span.w4{font-size:250%}div.jqcloud span.w3{font-size:200%}div.jqcloud span.w2{font-size:150%}div.jqcloud span.w1{font-size:100%}div.jqcloud{color:#09f}div.jqcloud a{color:inherit}div.jqcloud a:hover,div.jqcloud span.w10,div.jqcloud span.w8,div.jqcloud span.w9{color:#0cf}div.jqcloud span.w7{color:#39d}div.jqcloud span.w6{color:#90c5f0}div.jqcloud span.w5{color:#90a0dd}div.jqcloud span.w4{color:#90c5f0}div.jqcloud span.w3{color:#a0ddff}div.jqcloud span.w2{color:#9ce}div.jqcloud span.w1{color:#aab5f0}

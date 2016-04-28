@@ -1,9 +1,8 @@
 from sort import sortYaks
 
 
-sortedTuple = sortYaks(3, 20, 22)
+sortedTuple = sortYaks(4, 11, 22)
 if sortedTuple != 0:
-    sortedTuple = sortedTuple[0]
-print sortedTuple
-print ""
+    sortedTuple = sortedTuple[1]
 
+print sortedTuple

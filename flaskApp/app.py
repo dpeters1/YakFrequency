@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, jsonify
 import sys
 import os.path
 sys.path.append(os.path.join(os.path.split(os.path.dirname(os.path.abspath
@@ -16,8 +16,20 @@ def main():
 
 @app.route("/<int:day>/<int:time>")
 def time(day, time):
-    sortedTuple = sortYaks(3, day, time)
+    sortedTuple = sortYaks(4, day, time)
     return render_template("index.html", yaks=sortedTuple)
+
+
+@app.route('/timeData', methods=['POST', 'GET'])
+def timeData():
+    if request.method == 'POST':
+        hourMin = request.json['hourMin']
+        hourMax = request.json['hourMax']
+        dayMin = request.json['dayMin']
+        dayMax = request.json['dayMax']
+        startDate = request.json['startDate']
+        endDate = request.json['endDate']
+        return jsonify(hourMin=hourMin, hourMax=hourMax, dayMin=dayMin, dayMax=dayMax, startDate=startDate, endDate=endDate, yaksup=sortYaks(4, 11, hourMin))
 
 
 if __name__ == "__main__":
