@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, jsonify
+from datetime import datetime
 import sys
 import os.path
 sys.path.append(os.path.join(os.path.split(os.path.dirname(os.path.abspath
@@ -16,7 +17,7 @@ def main():
 
 @app.route("/<int:day>/<int:time>")
 def time(day, time):
-    sortedTuple = sortYaks(4, day, time)
+    sortedTuple = sortYaks(1459656000, 1462075200, 4, 5, 17, 18, False, False)
     return render_template("index.html", yaks=sortedTuple)
 
 
@@ -27,9 +28,13 @@ def timeData():
         hourMax = request.json['hourMax']
         dayMin = request.json['dayMin']
         dayMax = request.json['dayMax']
-        startDate = request.json['startDate']
-        endDate = request.json['endDate']
-        return jsonify(hourMin=hourMin, hourMax=hourMax, dayMin=dayMin, dayMax=dayMax, startDate=startDate, endDate=endDate, yaksup=sortYaks(4, 11, hourMin))
+        startDate = request.json['startStamp'] / 1000.0
+        endDate = request.json['endStamp'] / 1000.0
+        invertHour = request.json['invertHour']
+        invertDay = request.json['invertDay']
+
+        sortedShit = sortYaks(startDate, endDate, dayMin, dayMax, hourMin, hourMax, invertHour, invertDay)
+        return jsonify(hourMin=hourMin, hourMax=hourMax, dayMin=dayMin, dayMax=dayMax, startDate=startDate, endDate=endDate, invertHour=invertHour, invertDay=invertDay, yaksup=sortedShit)
 
 
 if __name__ == "__main__":

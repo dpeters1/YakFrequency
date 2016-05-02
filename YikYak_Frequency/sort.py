@@ -1,4 +1,5 @@
 import os.path
+import datetime
 
 base_dir = os.path.split(os.path.dirname(os.path.abspath(__file__)))[0]
 savePath = os.path.join(base_dir, "Word_Freq_Data")
@@ -87,31 +88,59 @@ def removeStopwords(wordlist, stopwords):
     return [w for w in wordlist if w not in stopwords]
 
 
-def sortYaks(month, day, hour):
-    ''' Returns tuple containing sorted word list
-    corresponding word frequency list '''
+def sortYaks(startDate, endDate, minDay, maxDay, minHour, maxHour, invertHour, invertDay):
 
-    file = open(os.path.join(savePath, "wordData_" + str(month) +
-                "-" + str(day) + ".txt"), "r")
+    numDays = (endDate - startDate) / 86400
+    dataset = []
+    date = datetime.date.today()
+    inRange = False
 
-    try:
-        dataSet = file.readlines()[hour].split()
-        if dataSet == ['Empty']:
-            print "No yaks posted at this hour"
-            return 0
-        else:
-            for i, word in enumerate(dataSet):
-                for char in word:
-                    if ord(char) == 39:
-                        dataSet.pop(i)
+    for day in range(int(numDays)):
+        if not invertDay and day % 7 in range(minDay, maxDay + 1):
+            date = datetime.datetime.fromtimestamp(startDate + 86400 * day)
+            print date
+            inRange = True
 
-            wordString = " ".join(removeStopwords(dataSet, stopwords))
-            filtered = stripNonAlphaNum(wordString)
-            dictionary = (wordListToFreqDict(filtered))
-            sortedTuple = sortFreqDict(dictionary)
+        elif invertDay and day % 7 not in range(minDay, maxDay + 1):
+            date = datetime.datetime.fromtimestamp(startDate + 86400 * day)
+            print date
+            inRange = True
 
-            return zip(*sortedTuple)
+        if inRange:
+            try:
+                file = open(os.path.join(savePath, "wordData_" + str(date.month) +
+                            "-" + str(date.day) + ".txt"), "r")
+                print "Fetching words from wordData_" + str(date.month) + "-" + str(date.day) + ".txt"
 
-    except IndexError:
-        print "Index error; yaks were not collected at this time"
-        return 0
+                try:
+                    for hour in range(0, 24):
+                        file.seek(0, 0)
+                        if not invertHour and hour in range(minHour, maxHour):
+                            temp = file.readlines()[hour].split()
+                            if temp != ['Empty']:
+                                dataset += temp
+                                print "Fetched yaks from %d:00" % hour
+                        if invertHour and hour not in range(minHour, maxHour):
+                            dataset += file.readlines()[hour].split()
+                            print "Fetched yaks from %d:00" % hour
+
+                except IndexError:
+                    print "Index error; yaks were not collected at this time"
+                file.close()
+                #print dataset
+                inRange = False
+
+            except IOError:
+                print "Error: File not found"
+
+    for i, word in enumerate(dataset):
+        for char in word:
+            if ord(char) == 39:
+                dataset.pop(i)
+
+    wordString = " ".join(removeStopwords(dataset, stopwords))
+    filtered = stripNonAlphaNum(wordString)
+    dictionary = (wordListToFreqDict(filtered))
+    sortedTuple = sortFreqDict(dictionary)
+
+    return zip(*sortedTuple)
