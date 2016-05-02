@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, jsonify
-from datetime import datetime
 import sys
 import os.path
 sys.path.append(os.path.join(os.path.split(os.path.dirname(os.path.abspath
@@ -12,13 +11,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def main():
-    return render_template("index.html", yaks="No period selected")
-
-
-@app.route("/<int:day>/<int:time>")
-def time(day, time):
-    sortedTuple = sortYaks(1459656000, 1462075200, 4, 5, 17, 18, False, False)
-    return render_template("index.html", yaks=sortedTuple)
+    return render_template("index.html")
 
 
 @app.route('/timeData', methods=['POST', 'GET'])

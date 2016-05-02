@@ -1,7 +1,7 @@
 // default time range is [-5h : current time]
 var CurrentDate = new Date();
-var startDate = new Date(CurrentDate.getFullYear(), CurrentDate.getMonth(), CurrentDate.getDate()-CurrentDate.getDay());
-var endDate = new Date(CurrentDate.getFullYear(), CurrentDate.getMonth(), CurrentDate.getDate()-CurrentDate.getDay()+7);
+var startDate = new Date(CurrentDate.getFullYear(), CurrentDate.getMonth(), CurrentDate.getDate()-CurrentDate.getDay()); //Default range is current week
+var endDate = new Date(CurrentDate.getFullYear(), CurrentDate.getMonth(), CurrentDate.getDate()-CurrentDate.getDay()+7, 12, 59, 59);
 var timeBounds = { // Stores values of sliders
     hourMin: CurrentDate.getHours()-5,
     hourMax: CurrentDate.getHours(),
@@ -14,7 +14,7 @@ var timeBounds = { // Stores values of sliders
 };
 if(CurrentDate.getHours() < 5){ //if it's earlier than 5am, include previous day's yaks in default load
     timeBounds.hourMin = timeBounds.hourMax;
-    timeBounds.hourMax += 20;
+    timeBounds.hourMax += 19;
     document.getElementById('invertHour').checked = true;
     timeBounds.invertHour = true;
     timeBounds.dayMin -= 1;
@@ -62,9 +62,15 @@ $("#daySlider").rangeSlider({
 });
 $("#dateSlider").dateRangeSlider({
     defaultValues:{min: startDate, max: endDate},
-    //bounds: {min: new Date(2016, 2, 20), max: new Date(endDate.getFullYear(), endDate.getMonth(), endDate.getDate()-endDate.getDay()+7)},
-    bounds: {min: new Date(2016, 2, 6), max: new Date(2016, 7, 21)},
-    step: {days: 7}
+    bounds: {min: new Date(2016, 2, 20), max: new Date(CurrentDate.getFullYear(), CurrentDate.getMonth(), CurrentDate.getDate()-CurrentDate.getDay()+7, 12, 59, 59)},
+
+    formatter:function(val){
+        var dispDate = new Date(val.getFullYear(), val.getMonth(), val.getDate()-val.getDay());
+        var days = dispDate.getDate(),
+          month = dispDate.getMonth() + 1,
+          year = dispDate.getFullYear();
+        return days + "/" + month + "/" + year;
+    }
 });
 
 $("#basicSlider").bind("valuesChanged", function(e, data){
@@ -83,10 +89,8 @@ $("#daySlider").bind("valuesChanged", function(e, data){
 
 $("#dateSlider").bind("valuesChanged", function(e, data){
     var dayValues = $("#daySlider").rangeSlider("values");
-    startDate.setDate(data.values.min.getDate());
-    endDate.setDate(data.values.max.getDate());
-    startDate.setMonth(data.values.min.getMonth());
-    endDate.setMonth(data.values.max.getMonth());
+    startDate = new Date(data.values.min.getFullYear(), data.values.min.getMonth(), data.values.min.getDate()-data.values.min.getDay());
+    endDate = new Date(data.values.max.getFullYear(), data.values.max.getMonth(), data.values.max.getDate()-data.values.max.getDay());
 
     returnDate();
 });
@@ -98,6 +102,7 @@ $('#invertHour').change(function() {
     else{
         timeBounds.invertHour = false;
     }
+
     returnDate();
 });
 
@@ -112,6 +117,10 @@ $('#invertDay').change(function() {
 });
 
 function returnDate() {
+    $('#cloud').jQCloud('update', [{text: "Loading...", weight: "10"}], {
+            autoResize: true
+        });
+    endDate = new Date(endDate.getFullYear(), endDate.getMonth(), endDate.getDate()); // Remove hh:mm:ss  
     timeBounds.startStamp = startDate.getTime(); // Convert to timestamp for js to python date object
     timeBounds.endStamp = endDate.getTime();
     $.ajax({
@@ -134,8 +143,8 @@ function returnDate() {
         console.log(data.hourMax);
         console.log(data.dayMin);
         console.log(data.dayMax);
-        console.log(data.startDate);
-        console.log(data.endDate);
+        console.log(new Date(data.startDate*1000));
+        console.log(new Date(data.endDate*1000));
         console.log(data.invertHour);
         console.log(data.invertDay);
     },

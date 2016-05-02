@@ -90,27 +90,28 @@ def removeStopwords(wordlist, stopwords):
 
 def sortYaks(startDate, endDate, minDay, maxDay, minHour, maxHour, invertHour, invertDay):
 
-    numDays = (endDate - startDate) / 86400
+    numDays = (endDate - startDate) / 86400  # Number of days in data range
     dataset = []
     date = datetime.date.today()
     inRange = False
 
+    # Iterate through days
     for day in range(int(numDays)):
         if not invertDay and day % 7 in range(minDay, maxDay + 1):
             date = datetime.datetime.fromtimestamp(startDate + 86400 * day)
-            print date
+            # print date
             inRange = True
 
         elif invertDay and day % 7 not in range(minDay, maxDay + 1):
             date = datetime.datetime.fromtimestamp(startDate + 86400 * day)
-            print date
+            # print date
             inRange = True
 
         if inRange:
             try:
                 file = open(os.path.join(savePath, "wordData_" + str(date.month) +
                             "-" + str(date.day) + ".txt"), "r")
-                print "Fetching words from wordData_" + str(date.month) + "-" + str(date.day) + ".txt"
+                # print "Fetching words from wordData_" + str(date.month) + "-" + str(date.day) + ".txt"
 
                 try:
                     for hour in range(0, 24):
@@ -119,23 +120,24 @@ def sortYaks(startDate, endDate, minDay, maxDay, minHour, maxHour, invertHour, i
                             temp = file.readlines()[hour].split()
                             if temp != ['Empty']:
                                 dataset += temp
-                                print "Fetched yaks from %d:00" % hour
-                        if invertHour and hour not in range(minHour, maxHour):
-                            dataset += file.readlines()[hour].split()
-                            print "Fetched yaks from %d:00" % hour
-
+                                # print "Fetched yaks from %d:00" % hour
+                        elif invertHour and hour not in range(minHour, maxHour):
+                            temp = file.readlines()[hour].split()
+                            if temp != ['Empty']:
+                                dataset += temp
+                            # print "Fetched yaks from %d:00" % hour
                 except IndexError:
-                    print "Index error; yaks were not collected at this time"
+                    pass
+                    # print "Index error; yaks were not collected at this time"
                 file.close()
-                #print dataset
                 inRange = False
-
             except IOError:
-                print "Error: File not found"
+                pass
+                # print "Error: File not found"
 
     for i, word in enumerate(dataset):
         for char in word:
-            if ord(char) == 39:
+            if ord(char) == 39: # Remove words with apostraphes
                 dataset.pop(i)
 
     wordString = " ".join(removeStopwords(dataset, stopwords))
