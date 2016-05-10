@@ -3,9 +3,6 @@ import datetime
 from collections import Counter, deque
 import re
 
-base_dir = os.path.split(os.path.dirname(os.path.abspath(__file__)))[0]
-savePath = os.path.join(base_dir, "Word_Freq_Data")
-
 stopwords = ['a', 'about', 'above', 'across', 'after', 'afterwards']
 stopwords += ['again', 'against', 'all', 'almost', 'alone', 'along']
 stopwords += ['already', 'also', 'although', 'always', 'am', 'among']
@@ -64,8 +61,10 @@ def removeStopwords(wordlist, stopwords):
     return [w for w in wordlist if w not in stopwords]
 
 
-def sortYaks(startDate, endDate, minDay, maxDay, minHour, maxHour, invertHour, invertDay):
+def sortYaks(startDate, endDate, minDay, maxDay, minHour, maxHour, invertHour, invertDay, university):
 
+    base_dir = os.path.split(os.path.dirname(os.path.abspath(__file__)))[0]
+    savePath = os.path.join(base_dir, "Word_Freq_Data/" + university)
     numDays = (endDate - startDate) / 86400  # Number of days in data range
     dataset = deque()
     date = datetime.date.today()
