@@ -26,8 +26,8 @@ def timeData():
         invertHour = request.json['invertHour']
         invertDay = request.json['invertDay']
 
-        sortedShit = sortYaks(startDate, endDate, dayMin, dayMax, hourMin, hourMax, invertHour, invertDay)
-        return jsonify(hourMin=hourMin, hourMax=hourMax, dayMin=dayMin, dayMax=dayMax, startDate=startDate, endDate=endDate, invertHour=invertHour, invertDay=invertDay, yaksup=sortedShit)
+        yaks = sortYaks(startDate, endDate, dayMin, dayMax, hourMin, hourMax, invertHour, invertDay)
+        return jsonify(hourMin=hourMin, hourMax=hourMax, dayMin=dayMin, dayMax=dayMax, startDate=startDate, endDate=endDate, invertHour=invertHour, invertDay=invertDay, yaks=yaks)
 
 
 if __name__ == "__main__":

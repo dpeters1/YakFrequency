@@ -132,13 +132,11 @@ function returnDate() {
     
         var updateWords = []
         for(i=0;i<30;i++){
-            updateWords.push({text: data.yaksup[1][i], weight: data.yaksup[0][i]})
+            updateWords.push({text: data.yaks[i][0], weight: data.yaks[i][1]})
         }
         $('#cloud').jQCloud('update', updateWords, {
             autoResize: true
         });
-    
-        console.log(data.yaksup);
         console.log(data.hourMin);
         console.log(data.hourMax);
         console.log(data.dayMin);
