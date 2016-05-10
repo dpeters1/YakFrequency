@@ -1,0 +1,8 @@
+#!/bin/bash
+
+unis=(Carleton Ottawa Toronto Acadia Algonquin Western Waterloo Queens Mcgill)
+for i in {0..8}
+do
+   python /YikYak_Frequency/get_yaks.py ${unis[$i]}
+   sleep 5
+done 
