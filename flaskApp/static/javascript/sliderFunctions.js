@@ -10,7 +10,8 @@ var timeBounds = { // Stores values of sliders
     startStamp : startDate.getTime(),
     endStamp : endDate.getTime(),
     invertHour: false,
-    invertDay: false
+    invertDay: false,
+    university: "Carleton"
 };
 if(CurrentDate.getHours() < 5){ //if it's earlier than 5am, include previous day's yaks in default load
     timeBounds.hourMin = timeBounds.hourMax;
@@ -134,9 +135,7 @@ function returnDate() {
         for(i=0;i<30;i++){
             updateWords.push({text: data.yaks[i][0], weight: data.yaks[i][1]})
         }
-        $('#cloud').jQCloud('update', updateWords, {
-            autoResize: true
-        });
+        $('#cloud').jQCloud('update', updateWords);
         console.log(data.hourMin);
         console.log(data.hourMax);
         console.log(data.dayMin);
@@ -145,7 +144,45 @@ function returnDate() {
         console.log(new Date(data.endDate*1000));
         console.log(data.invertHour);
         console.log(data.invertDay);
+        console.log(data.university);
     },
     dataType: "json"
 });
 }
+
+/// University Selectors
+
+$(document).ready(function() {
+    $("#radio1").click(function(){
+        timeBounds.university = "Acadia";
+        returnDate();
+    }); 
+    $("#radio2").click(function(){
+        timeBounds.university = "Carleton";
+        returnDate();
+    }); 
+    $("#radio3").click(function(){
+        timeBounds.university = "Mcgill";
+        returnDate();
+    }); 
+    $("#radio4").click(function(){
+        timeBounds.university = "Ottawa";
+        returnDate();
+    }); 
+    $("#radio5").click(function(){
+        timeBounds.university = "Queens";
+        returnDate();
+    }); 
+    $("#radio6").click(function(){
+        timeBounds.university = "Toronto";
+        returnDate();
+    }); 
+    $("#radio7").click(function(){
+        timeBounds.university = "Waterloo";
+        returnDate();
+    }); 
+    $("#radio8").click(function(){
+        timeBounds.university = "Western";
+        returnDate();
+    }); 
+});

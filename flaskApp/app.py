@@ -25,9 +25,10 @@ def timeData():
         endDate = request.json['endStamp'] / 1000.0
         invertHour = request.json['invertHour']
         invertDay = request.json['invertDay']
+        university = request.json['university']
 
-        yaks = sortYaks(startDate, endDate, dayMin, dayMax, hourMin, hourMax, invertHour, invertDay, "Carleton")
-        return jsonify(hourMin=hourMin, hourMax=hourMax, dayMin=dayMin, dayMax=dayMax, startDate=startDate, endDate=endDate, invertHour=invertHour, invertDay=invertDay, yaks=yaks)
+        yaks = sortYaks(startDate, endDate, dayMin, dayMax, hourMin, hourMax, invertHour, invertDay, university)
+        return jsonify(hourMin=hourMin, hourMax=hourMax, dayMin=dayMin, dayMax=dayMax, startDate=startDate, endDate=endDate, invertHour=invertHour, invertDay=invertDay, yaks=yaks, university=university)
 
 
 if __name__ == "__main__":
