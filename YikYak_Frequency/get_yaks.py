@@ -4,7 +4,7 @@ import os.path
 import sys
 from random import choice
 
-university = sys.argv[1]
+university = "Carleton" # sys.argv[1]
 coords = {
     "Carleton": [45.3856, -75.6959],
     "Toronto": [43.6629, -79.3957],
@@ -52,20 +52,21 @@ yestFile = os.path.join(savePath, "wordData_" + str(today.month) +
 
 def getLastYaks(fileName, hourTime):
     ''' Returns most recently stored yaks '''
-    lastDataSet = []
+    dataSet = []
     indexCount = 0
     file = open(fileName, "a+")
 
+# Search file for last hour with content
     for i in xrange(hourTime):
         file.seek(0, 0)
         try:
-            lastDataSet = file.readlines()[hourTime - 1 - i].split("%^$ ")
+            dataSet = file.readlines()[hourTime - 1 - i].split("%^$ ")
         except IndexError:
             # Fill hours when program wasn't running with "Empty"
             indexCount += 1
             print "Index error, continuing operations"
 
-        if lastDataSet != ['Empty\n'] and lastDataSet != []:
+        if dataSet != ['Empty\n'] and dataSet != []:
             # If yaks were found in the file, stop looking
             print "Going back %d hour(s) for last yaks" % (i + 1)
             break
@@ -74,12 +75,13 @@ def getLastYaks(fileName, hourTime):
     for j in xrange(indexCount):  # Fill previous hours' lines
             file.write("Empty\n")
     file.close()
-    return lastDataSet
+    return dataSet
 
 
-def getNewYaks(lastDataSet):
+def getNewYaks(lastDataSet, tries):
     ''' Pulls yaks from yikyak server and returns new ones '''
-    wordData = []
+    dataSet = []
+    endFound = False
     contentLen = len(user.get_yaks())
 
     for i, yak in enumerate(user.get_yaks()):
@@ -88,25 +90,40 @@ def getNewYaks(lastDataSet):
 
         if i + 1 == contentLen:
             break  # Skip the last yak about updating the app
+
+        # Stop adding posts once the newest one from the previous data set
+        # is found
         if post in lastDataSet:
-            if wordData == []:
+            endFound = True
+            if dataSet == []:  # Newest post is from the previous hour
                 print "No new yaks"
             else:
-                print "New yaks: %s" % wordData
+                print "New yaks: %s" % dataSet
             break
-        wordData.append(post)
-    return wordData
+        dataSet.append(post)
 
-# Iterate through previous hours' yaks until latest non-empty hour is found
-lastDataSet = getLastYaks(todayFile, time.hour)
+    # Only return posts if hour break point was found
+    if endFound or tries > 2:
+        return dataSet
+    else:
+        return 1
 
-# Look in yesterday's yaks if none found in current day
-if lastDataSet == []:
-    lastDataSet = getLastYaks(yestFile, 24)
-    print "Using yesterday's file"
-# first line is from last hour
+for i in xrange(4):
+    ''' Create list of previous hours' posts, and only collect new posts.
+    If all matching posts from previous hour are deleted, compare to
+    the hour before that one '''
 
-wordData = getNewYaks(lastDataSet)
+    # Iterate through previous hours' yaks until latest non-empty hour is found
+    lastDataSet = getLastYaks(todayFile, time.hour - i)
+    print "Iterating %i times" % (i + 1)
+    # Look in yesterday's yaks if none found in current day
+    if lastDataSet == [] or lastDataSet == ['Empty\n']:
+        lastDataSet = getLastYaks(yestFile, 24 - i)
+        print "Using yesterday's file"
+        # first line is from last hour
+    wordData = getNewYaks(lastDataSet, i)
+    if wordData != 1:
+        break
 
 file = open(todayFile, "a+")
 if wordData == []:
