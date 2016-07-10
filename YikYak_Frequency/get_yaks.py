@@ -4,7 +4,7 @@ import os.path
 import sys
 from random import choice
 
-university = "Carleton" # sys.argv[1]
+university = sys.argv[1]
 coords = {
     "Carleton": [45.3856, -75.6959],
     "Toronto": [43.6629, -79.3957],
