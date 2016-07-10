@@ -4,6 +4,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 <script src="{{ url_for('static', filename='javascript/jQRangeSlider-min.js') }}"></script>
 <script src="http://mistic100.github.io/jQCloud/dist/jqcloud2/dist/jqcloud.min.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="{{ url_for('static', filename='javascript/jQDateRangeSlider-min.js') }}"></script>
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
@@ -22,6 +23,23 @@
 <body>
     <div id="content">
         <div id="left_content">
+        <script>
+            $(function() {
+            $( "#radio" ).buttonset();
+            });
+        </script>
+            <div id=uniButtons>
+                <div id="radio">
+                    <input type="radio" id="radio1" name="radio"><label for="radio1">Acadia</label>
+                    <input type="radio" id="radio2" name="radio"checked="checked"><label for="radio2">Carleton</label>
+                    <input type="radio" id="radio3" name="radio"><label for="radio3">McGill</label>
+                    <input type="radio" id="radio4" name="radio"><label for="radio4">Ottawa U</label>
+                    <input type="radio" id="radio5" name="radio"><label for="radio5">Queens</label>
+                    <input type="radio" id="radio6" name="radio"><label for="radio6">U of T</label>
+                    <input type="radio" id="radio7" name="radio"><label for="radio7">Waterloo</label>
+                    <input type="radio" id="radio8" name="radio"><label for="radio8">Western</label>
+                </div>
+            </div>
             <p><b>Time of Day</b></p>
             <label><input id="invertHour" type="checkbox" >Invert Selection</label>
             <div id="basicSlider"></div>
@@ -37,7 +55,9 @@
     <script type="text/javascript">
 
         $('#cloud').jQCloud([{text: "Loading...", weight: "10"}], {
-            autoResize: true
+            autoResize: true,
+            delay: 20,
+            fontSize: ["700%","650%","600%","550%","500%","450%","400%","350%","300%","250%","200%"]
         });
     </script>
 </body>
