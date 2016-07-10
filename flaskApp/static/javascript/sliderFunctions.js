@@ -132,10 +132,20 @@ function returnDate() {
       success: function (data) {
     
         var updateWords = []
-        for(i=0;i<30;i++){
-            updateWords.push({text: data.yaks[i][0], weight: data.yaks[i][1]})
+
+        try {
+            for(i=0;i<30;i++){
+                updateWords.push({text: data.yaks[i][0], weight: data.yaks[i][1]})
+                $('#cloud').jQCloud('update', updateWords);
+            }
+        } catch (e) {
+            if (e instanceof TypeError) {
+                $('#cloud').jQCloud('update', [{text: "No posts in selected time range", weight: "3"},
+                    {text: "[Error]", weight: "4"}], {autoResize: true
+        });
         }
-        $('#cloud').jQCloud('update', updateWords);
+    }
+        
         console.log(data.hourMin);
         console.log(data.hourMax);
         console.log(data.dayMin);

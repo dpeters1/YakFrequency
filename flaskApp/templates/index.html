@@ -1,16 +1,18 @@
 <!DOCTYPE html>
+
 <html>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-<script src="{{ url_for('static', filename='javascript/jQRangeSlider-min.js') }}"></script>
-<script src="http://mistic100.github.io/jQCloud/dist/jqcloud2/dist/jqcloud.min.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<script src="{{ url_for('static', filename='javascript/jQDateRangeSlider-min.js') }}"></script>
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 <link href="https://ghusse.github.io/jQRangeSlider/stable/css/iThing.css" rel="stylesheet" media="screen">
 
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <script src="{{ url_for('static', filename='javascript/jQRangeSlider-min.js') }}"></script>
+    <script src="{{ url_for('static', filename='javascript/jQDateRangeSlider-min.js') }}"></script>
+    <script src="http://mistic100.github.io/jQCloud/dist/jqcloud2/dist/jqcloud.min.js"></script>
+
     <title>YikYak Word Frequencies</title>
 </head>
 
@@ -48,7 +50,9 @@
             <div id="daySlider"></div>
             <p><b>Weeks of Year</b></p>
             <div id="dateSlider"></div>
-            <script src="{{ url_for('static', filename='javascript/sliderFunctions.js') }}"></script>
+            <script src="{{ url_for('static', filename='javascript/sliderFunctions.js') }}">
+                returnDate();
+            </script>
         </div>
         <div id="cloud"></div>
     </div> 
