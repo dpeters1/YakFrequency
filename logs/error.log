@@ -1,0 +1,17 @@
+[Mon Jul 11 11:20:29 2016] [error] [client 68.171.72.116] (13)Permission denied: access to / denied (filesystem path '/home/ec2-user/YakFrequency') because search permissions are missing on a component of the path
+[Mon Jul 11 11:24:20 2016] [error] [client 68.171.72.116] mod_wsgi (pid=5765): Target WSGI script '/home/ec2-user/YakFrequency/yakApp.wsgi' cannot be loaded as Python module.
+[Mon Jul 11 11:24:20 2016] [error] [client 68.171.72.116] mod_wsgi (pid=5765): Exception occurred processing WSGI script '/home/ec2-user/YakFrequency/yakApp.wsgi'.
+[Mon Jul 11 11:24:20 2016] [error] [client 68.171.72.116] Traceback (most recent call last):
+[Mon Jul 11 11:24:20 2016] [error] [client 68.171.72.116]   File "/home/ec2-user/YakFrequency/yakApp.wsgi", line 3, in <module>
+[Mon Jul 11 11:24:20 2016] [error] [client 68.171.72.116]     from app import app as application
+[Mon Jul 11 11:24:20 2016] [error] [client 68.171.72.116]   File "/home/ec2-user/YakFrequency/flaskApp/app.py", line 1, in <module>
+[Mon Jul 11 11:24:20 2016] [error] [client 68.171.72.116]     from flask import Flask, render_template, request, jsonify
+[Mon Jul 11 11:24:20 2016] [error] [client 68.171.72.116] ImportError: No module named flask
+[Mon Jul 11 11:24:25 2016] [error] [client 68.171.72.116] mod_wsgi (pid=5766): Target WSGI script '/home/ec2-user/YakFrequency/yakApp.wsgi' cannot be loaded as Python module.
+[Mon Jul 11 11:24:25 2016] [error] [client 68.171.72.116] mod_wsgi (pid=5766): Exception occurred processing WSGI script '/home/ec2-user/YakFrequency/yakApp.wsgi'.
+[Mon Jul 11 11:24:25 2016] [error] [client 68.171.72.116] Traceback (most recent call last):
+[Mon Jul 11 11:24:25 2016] [error] [client 68.171.72.116]   File "/home/ec2-user/YakFrequency/yakApp.wsgi", line 3, in <module>
+[Mon Jul 11 11:24:25 2016] [error] [client 68.171.72.116]     from app import app as application
+[Mon Jul 11 11:24:25 2016] [error] [client 68.171.72.116]   File "/home/ec2-user/YakFrequency/flaskApp/app.py", line 1, in <module>
+[Mon Jul 11 11:24:25 2016] [error] [client 68.171.72.116]     from flask import Flask, render_template, request, jsonify
+[Mon Jul 11 11:24:25 2016] [error] [client 68.171.72.116] ImportError: No module named flask
