@@ -15,3 +15,45 @@
 [Mon Jul 11 11:24:25 2016] [error] [client 68.171.72.116]   File "/home/ec2-user/YakFrequency/flaskApp/app.py", line 1, in <module>
 [Mon Jul 11 11:24:25 2016] [error] [client 68.171.72.116]     from flask import Flask, render_template, request, jsonify
 [Mon Jul 11 11:24:25 2016] [error] [client 68.171.72.116] ImportError: No module named flask
+[Tue Jul 12 04:54:29 2016] [error] [client 169.229.3.91] mod_wsgi (pid=6057): Exception occurred processing WSGI script '/home/ec2-user/YakFrequency/yakApp.wsgi'.
+[Tue Jul 12 04:54:29 2016] [error] [client 169.229.3.91] Traceback (most recent call last):
+[Tue Jul 12 04:54:29 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1836, in __call__
+[Tue Jul 12 04:54:29 2016] [error] [client 169.229.3.91]     return self.wsgi_app(environ, start_response)
+[Tue Jul 12 04:54:29 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1812, in wsgi_app
+[Tue Jul 12 04:54:29 2016] [error] [client 169.229.3.91]     ctx = self.request_context(environ)
+[Tue Jul 12 04:54:29 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1773, in request_context
+[Tue Jul 12 04:54:29 2016] [error] [client 169.229.3.91]     return RequestContext(self, environ)
+[Tue Jul 12 04:54:29 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/flask/ctx.py", line 224, in __init__
+[Tue Jul 12 04:54:29 2016] [error] [client 169.229.3.91]     self.url_adapter = app.create_url_adapter(self.request)
+[Tue Jul 12 04:54:29 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1602, in create_url_adapter
+[Tue Jul 12 04:54:29 2016] [error] [client 169.229.3.91]     server_name=self.config['SERVER_NAME'])
+[Tue Jul 12 04:54:29 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/werkzeug/routing.py", line 1327, in bind_to_environ
+[Tue Jul 12 04:54:29 2016] [error] [client 169.229.3.91]     query_args=query_args)
+[Tue Jul 12 04:54:29 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/werkzeug/routing.py", line 1241, in bind
+[Tue Jul 12 04:54:29 2016] [error] [client 169.229.3.91]     url_scheme, path_info, default_method, query_args)
+[Tue Jul 12 04:54:29 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/werkzeug/routing.py", line 1367, in __init__
+[Tue Jul 12 04:54:29 2016] [error] [client 169.229.3.91]     self.default_method = to_unicode(default_method)
+[Tue Jul 12 04:54:29 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/werkzeug/_compat.py", line 206, in to_unicode
+[Tue Jul 12 04:54:29 2016] [error] [client 169.229.3.91]     return x.decode(charset, errors)
+[Tue Jul 12 04:54:29 2016] [error] [client 169.229.3.91] UnicodeDecodeError: 'ascii' codec can't decode byte 0xb4 in position 4: ordinal not in range(128)
+[Wed Jul 13 06:45:01 2016] [error] [client 169.229.3.91] mod_wsgi (pid=6058): Exception occurred processing WSGI script '/home/ec2-user/YakFrequency/yakApp.wsgi'.
+[Wed Jul 13 06:45:01 2016] [error] [client 169.229.3.91] Traceback (most recent call last):
+[Wed Jul 13 06:45:01 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1836, in __call__
+[Wed Jul 13 06:45:01 2016] [error] [client 169.229.3.91]     return self.wsgi_app(environ, start_response)
+[Wed Jul 13 06:45:01 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1812, in wsgi_app
+[Wed Jul 13 06:45:01 2016] [error] [client 169.229.3.91]     ctx = self.request_context(environ)
+[Wed Jul 13 06:45:01 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1773, in request_context
+[Wed Jul 13 06:45:01 2016] [error] [client 169.229.3.91]     return RequestContext(self, environ)
+[Wed Jul 13 06:45:01 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/flask/ctx.py", line 224, in __init__
+[Wed Jul 13 06:45:01 2016] [error] [client 169.229.3.91]     self.url_adapter = app.create_url_adapter(self.request)
+[Wed Jul 13 06:45:01 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1602, in create_url_adapter
+[Wed Jul 13 06:45:01 2016] [error] [client 169.229.3.91]     server_name=self.config['SERVER_NAME'])
+[Wed Jul 13 06:45:01 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/werkzeug/routing.py", line 1327, in bind_to_environ
+[Wed Jul 13 06:45:01 2016] [error] [client 169.229.3.91]     query_args=query_args)
+[Wed Jul 13 06:45:01 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/werkzeug/routing.py", line 1241, in bind
+[Wed Jul 13 06:45:01 2016] [error] [client 169.229.3.91]     url_scheme, path_info, default_method, query_args)
+[Wed Jul 13 06:45:01 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/werkzeug/routing.py", line 1367, in __init__
+[Wed Jul 13 06:45:01 2016] [error] [client 169.229.3.91]     self.default_method = to_unicode(default_method)
+[Wed Jul 13 06:45:01 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/werkzeug/_compat.py", line 206, in to_unicode
+[Wed Jul 13 06:45:01 2016] [error] [client 169.229.3.91]     return x.decode(charset, errors)
+[Wed Jul 13 06:45:01 2016] [error] [client 169.229.3.91] UnicodeDecodeError: 'ascii' codec can't decode byte 0xd8 in position 0: ordinal not in range(128)
