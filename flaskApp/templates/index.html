@@ -50,9 +50,7 @@
             <div id="daySlider"></div>
             <p><b>Weeks of Year</b></p>
             <div id="dateSlider"></div>
-            <script src="{{ url_for('static', filename='javascript/sliderFunctions.js') }}">
-                returnDate();
-            </script>
+
         </div>
         <div id="cloud"></div>
     </div> 
@@ -63,6 +61,9 @@
             delay: 20,
             fontSize: ["700%","650%","600%","550%","500%","450%","400%","350%","300%","250%","200%"]
         });
+    </script>
+    <script src="{{ url_for('static', filename='javascript/sliderFunctions.js') }}">
+        returnDate();
     </script>
 </body>
 
