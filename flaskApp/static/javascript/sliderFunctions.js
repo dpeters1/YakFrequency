@@ -101,7 +101,7 @@ $("#dateSlider").bind("valuesChanged", function(e, data){
     startDate = new Date(data.values.min.getFullYear(), data.values.min.getMonth(), data.values.min.getDate()-data.values.min.getDay());
     endDate = new Date(data.values.max.getFullYear(), data.values.max.getMonth(), data.values.max.getDate()-data.values.max.getDay());
     if (document.readyState === "complete") {
-        alert("month is guilty!");
+
         returnDate();
     }
 });
