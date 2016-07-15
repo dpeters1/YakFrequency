@@ -74,26 +74,36 @@ $("#dateSlider").dateRangeSlider({
     }
 });
 
+/* The sliders have a bug where the values "change" when the window is resized.
+   To overcome this, it checks whether the values have actually changed before requesting new data
+*/
 $("#basicSlider").bind("valuesChanged", function(e, data){
+    var oldHourMin = timeBounds.hourMin;
+    var oldHourMax = timeBounds.hourMax;
     timeBounds.hourMin = (Math.round(data.values.min));
     timeBounds.hourMax = (Math.round(data.values.max));
-
-    returnDate();
+    if (oldHourMin != timeBounds.hourMin && oldHourMax != timeBounds.hourMax) {
+        returnDate();
+    }
 });
 
 $("#daySlider").bind("valuesChanged", function(e, data){
+    var oldDayMin = timeBounds.dayMin;
+    var oldDayMax = timeBounds.dayMax;
     timeBounds.dayMin = Math.round(data.values.min);
     timeBounds.dayMax = Math.round(data.values.max);
-
-    returnDate();
+    if (oldDayMin != timeBounds.dayMin && oldDayMax != timeBounds.dayMax) {
+        returnDate();
+    }
 });
 
 $("#dateSlider").bind("valuesChanged", function(e, data){
-    var dayValues = $("#daySlider").rangeSlider("values");
     startDate = new Date(data.values.min.getFullYear(), data.values.min.getMonth(), data.values.min.getDate()-data.values.min.getDay());
     endDate = new Date(data.values.max.getFullYear(), data.values.max.getMonth(), data.values.max.getDate()-data.values.max.getDay());
-
-    returnDate();
+    if (document.readyState === "complete") {
+        alert("month is guilty!");
+        returnDate();
+    }
 });
 
 $('#invertHour').change(function() {

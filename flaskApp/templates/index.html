@@ -12,6 +12,7 @@
     <script src="{{ url_for('static', filename='javascript/jQRangeSlider-min.js') }}"></script>
     <script src="{{ url_for('static', filename='javascript/jQDateRangeSlider-min.js') }}"></script>
     <script src="http://mistic100.github.io/jQCloud/dist/jqcloud2/dist/jqcloud.min.js"></script>
+    
 
     <title>YikYak Word Frequencies</title>
 </head>
@@ -53,16 +54,18 @@
 
         </div>
         <div id="cloud"></div>
-    </div> 
-    <script type="text/javascript">
+    </div>
+
+    <!-- Needs to load script down here because it depends on slider elements being loaded -->
+    <script src="{{ url_for('static', filename='javascript/sliderFunctions.js') }}"></script>
+    <script>
 
         $('#cloud').jQCloud([{text: "Loading...", weight: "10"}], {
             autoResize: true,
             delay: 20,
             fontSize: ["700%","650%","600%","550%","500%","450%","400%","350%","300%","250%","200%"]
         });
-    </script>
-    <script src="{{ url_for('static', filename='javascript/sliderFunctions.js') }}">
+    
         returnDate();
     </script>
 </body>
