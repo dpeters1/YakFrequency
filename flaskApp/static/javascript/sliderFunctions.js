@@ -82,7 +82,7 @@ $("#basicSlider").bind("valuesChanged", function(e, data){
     var oldHourMax = timeBounds.hourMax;
     timeBounds.hourMin = (Math.round(data.values.min));
     timeBounds.hourMax = (Math.round(data.values.max));
-    if (oldHourMin != timeBounds.hourMin && oldHourMax != timeBounds.hourMax) {
+    if (oldHourMin != timeBounds.hourMin || oldHourMax != timeBounds.hourMax) {
         returnDate();
     }
 });
@@ -92,7 +92,7 @@ $("#daySlider").bind("valuesChanged", function(e, data){
     var oldDayMax = timeBounds.dayMax;
     timeBounds.dayMin = Math.round(data.values.min);
     timeBounds.dayMax = Math.round(data.values.max);
-    if (oldDayMin != timeBounds.dayMin && oldDayMax != timeBounds.dayMax) {
+    if (oldDayMin != timeBounds.dayMin || oldDayMax != timeBounds.dayMax) {
         returnDate();
     }
 });
