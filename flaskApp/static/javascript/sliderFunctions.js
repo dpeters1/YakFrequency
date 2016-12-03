@@ -1,7 +1,7 @@
 // default time range is [-5h : current time]
 var CurrentDate = new Date();
-var startDate = new Date(CurrentDate.getFullYear(), CurrentDate.getMonth(), CurrentDate.getDate()-CurrentDate.getDay()); //Default range is current week
-var endDate = new Date(CurrentDate.getFullYear(), CurrentDate.getMonth(), CurrentDate.getDate()-CurrentDate.getDay()+7, 12, 59, 59);
+var startDate = new Date(2016, 3, 3); //Default range is current week
+var endDate = new Date(2016, 4, 1, 12, 59, 59);
 var timeBounds = { // Stores values of sliders
     hourMin: CurrentDate.getHours()-5,
     hourMax: CurrentDate.getHours(),
@@ -63,7 +63,7 @@ $("#daySlider").rangeSlider({
 });
 $("#dateSlider").dateRangeSlider({
     defaultValues:{min: startDate, max: endDate},
-    bounds: {min: new Date(2016, 2, 20), max: new Date(CurrentDate.getFullYear(), CurrentDate.getMonth(), CurrentDate.getDate()-CurrentDate.getDay()+7, 12, 59, 59)},
+    bounds: {min: new Date(2016, 2, 20), max: new Date(2016, 7, 7, 12, 59, 59)},
 
     formatter:function(val){
         var dispDate = new Date(val.getFullYear(), val.getMonth(), val.getDate()-val.getDay());
