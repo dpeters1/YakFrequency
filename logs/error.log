@@ -57,3 +57,224 @@
 [Wed Jul 13 06:45:01 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/werkzeug/_compat.py", line 206, in to_unicode
 [Wed Jul 13 06:45:01 2016] [error] [client 169.229.3.91]     return x.decode(charset, errors)
 [Wed Jul 13 06:45:01 2016] [error] [client 169.229.3.91] UnicodeDecodeError: 'ascii' codec can't decode byte 0xd8 in position 0: ordinal not in range(128)
+[Fri Jul 15 04:10:38 2016] [error] [client 169.229.3.91] Invalid URI in request \x84\v<gM
+[Sat Jul 16 02:17:30 2016] [error] [client 62.112.42.188] request failed: error reading the headers
+[Mon Jul 18 04:47:35 2016] [error] [client 169.229.3.91] mod_wsgi (pid=27434): Exception occurred processing WSGI script '/home/ec2-user/YakFrequency/yakApp.wsgi'.
+[Mon Jul 18 04:47:35 2016] [error] [client 169.229.3.91] Traceback (most recent call last):
+[Mon Jul 18 04:47:35 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1836, in __call__
+[Mon Jul 18 04:47:35 2016] [error] [client 169.229.3.91]     return self.wsgi_app(environ, start_response)
+[Mon Jul 18 04:47:35 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1812, in wsgi_app
+[Mon Jul 18 04:47:35 2016] [error] [client 169.229.3.91]     ctx = self.request_context(environ)
+[Mon Jul 18 04:47:35 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1773, in request_context
+[Mon Jul 18 04:47:35 2016] [error] [client 169.229.3.91]     return RequestContext(self, environ)
+[Mon Jul 18 04:47:35 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/flask/ctx.py", line 224, in __init__
+[Mon Jul 18 04:47:35 2016] [error] [client 169.229.3.91]     self.url_adapter = app.create_url_adapter(self.request)
+[Mon Jul 18 04:47:35 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1602, in create_url_adapter
+[Mon Jul 18 04:47:35 2016] [error] [client 169.229.3.91]     server_name=self.config['SERVER_NAME'])
+[Mon Jul 18 04:47:35 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/werkzeug/routing.py", line 1327, in bind_to_environ
+[Mon Jul 18 04:47:35 2016] [error] [client 169.229.3.91]     query_args=query_args)
+[Mon Jul 18 04:47:35 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/werkzeug/routing.py", line 1241, in bind
+[Mon Jul 18 04:47:35 2016] [error] [client 169.229.3.91]     url_scheme, path_info, default_method, query_args)
+[Mon Jul 18 04:47:35 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/werkzeug/routing.py", line 1367, in __init__
+[Mon Jul 18 04:47:35 2016] [error] [client 169.229.3.91]     self.default_method = to_unicode(default_method)
+[Mon Jul 18 04:47:35 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/werkzeug/_compat.py", line 206, in to_unicode
+[Mon Jul 18 04:47:35 2016] [error] [client 169.229.3.91]     return x.decode(charset, errors)
+[Mon Jul 18 04:47:35 2016] [error] [client 169.229.3.91] UnicodeDecodeError: 'ascii' codec can't decode byte 0xa7 in position 4: ordinal not in range(128)
+[Thu Jul 21 08:26:17 2016] [error] [client 169.229.3.91] mod_wsgi (pid=27435): Exception occurred processing WSGI script '/home/ec2-user/YakFrequency/yakApp.wsgi'.
+[Thu Jul 21 08:26:17 2016] [error] [client 169.229.3.91] Traceback (most recent call last):
+[Thu Jul 21 08:26:17 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1836, in __call__
+[Thu Jul 21 08:26:17 2016] [error] [client 169.229.3.91]     return self.wsgi_app(environ, start_response)
+[Thu Jul 21 08:26:17 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1812, in wsgi_app
+[Thu Jul 21 08:26:17 2016] [error] [client 169.229.3.91]     ctx = self.request_context(environ)
+[Thu Jul 21 08:26:17 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1773, in request_context
+[Thu Jul 21 08:26:17 2016] [error] [client 169.229.3.91]     return RequestContext(self, environ)
+[Thu Jul 21 08:26:17 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/flask/ctx.py", line 224, in __init__
+[Thu Jul 21 08:26:17 2016] [error] [client 169.229.3.91]     self.url_adapter = app.create_url_adapter(self.request)
+[Thu Jul 21 08:26:17 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1602, in create_url_adapter
+[Thu Jul 21 08:26:17 2016] [error] [client 169.229.3.91]     server_name=self.config['SERVER_NAME'])
+[Thu Jul 21 08:26:17 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/werkzeug/routing.py", line 1327, in bind_to_environ
+[Thu Jul 21 08:26:17 2016] [error] [client 169.229.3.91]     query_args=query_args)
+[Thu Jul 21 08:26:17 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/werkzeug/routing.py", line 1241, in bind
+[Thu Jul 21 08:26:17 2016] [error] [client 169.229.3.91]     url_scheme, path_info, default_method, query_args)
+[Thu Jul 21 08:26:17 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/werkzeug/routing.py", line 1367, in __init__
+[Thu Jul 21 08:26:17 2016] [error] [client 169.229.3.91]     self.default_method = to_unicode(default_method)
+[Thu Jul 21 08:26:17 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/werkzeug/_compat.py", line 206, in to_unicode
+[Thu Jul 21 08:26:17 2016] [error] [client 169.229.3.91]     return x.decode(charset, errors)
+[Thu Jul 21 08:26:17 2016] [error] [client 169.229.3.91] UnicodeDecodeError: 'ascii' codec can't decode byte 0x88 in position 1: ordinal not in range(128)
+[Thu Jul 21 20:47:50 2016] [error] [client 189.202.107.253] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /tmUnblock.cgi
+[Thu Jul 21 20:47:54 2016] [error] [client 189.202.107.253] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /
+[Sun Jul 24 01:16:35 2016] [error] [client 23.23.244.203] Invalid URI in request GET HTTP/1.1 HTTP/1.1
+[Sun Jul 24 01:16:36 2016] [error] [client 23.23.244.203] script not found or unable to stat: /var/www/cgi-bin/test
+[Sun Jul 24 09:15:30 2016] [error] [client 84.88.40.253] Invalid URI in request GET HTTP/1.1 HTTP/1.1
+[Sun Jul 24 09:15:31 2016] [error] [client 84.88.40.253] script not found or unable to stat: /var/www/cgi-bin/test
+[Sun Jul 24 12:26:04 2016] [error] [client 185.125.4.222] Invalid URI in request GET HTTP/1.1 HTTP/1.1
+[Sun Jul 24 12:26:04 2016] [error] [client 185.125.4.222] script not found or unable to stat: /var/www/cgi-bin/test
+[Sun Jul 24 17:16:20 2016] [error] [client 141.212.122.96] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /x
+[Mon Jul 25 18:25:45 2016] [error] [client 192.95.62.201] Invalid URI in request GET HTTP/1.1 HTTP/1.1
+[Mon Jul 25 18:25:46 2016] [error] [client 192.95.62.201] script not found or unable to stat: /var/www/cgi-bin/test
+[Tue Jul 26 02:25:19 2016] [error] [client 52.77.209.20] Invalid URI in request GET HTTP/1.1 HTTP/1.1
+[Tue Jul 26 02:25:21 2016] [error] [client 52.77.209.20] script not found or unable to stat: /var/www/cgi-bin/test
+[Tue Jul 26 05:33:51 2016] [error] [client 187.28.203.18] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /
+[Wed Jul 27 18:31:35 2016] [error] [client 200.181.55.75] Invalid URI in request GET HTTP/1.1 HTTP/1.1
+[Wed Jul 27 18:31:37 2016] [error] [client 200.181.55.75] script not found or unable to stat: /var/www/cgi-bin/test
+[Sat Jul 30 07:01:05 2016] [error] [client 106.51.29.122] Invalid URI in request GET HTTP/1.1 HTTP/1.1
+[Sat Jul 30 07:01:15 2016] [error] [client 106.51.29.122] script not found or unable to stat: /var/www/cgi-bin/test
+[Sat Jul 30 13:37:45 2016] [error] [client 212.83.158.241] Invalid URI in request GET HTTP/1.1 HTTP/1.1
+[Sat Jul 30 13:37:45 2016] [error] [client 212.83.158.241] script not found or unable to stat: /var/www/cgi-bin/test
+[Sun Jul 31 17:45:02 2016] [error] [client 31.199.162.116] Invalid URI in request GET HTTP/1.1 HTTP/1.1
+[Sun Jul 31 17:45:03 2016] [error] [client 31.199.162.116] script not found or unable to stat: /var/www/cgi-bin/test
+[Sun Jul 31 18:58:51 2016] [error] [client 141.212.122.160] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /x
+[Mon Aug 01 09:43:52 2016] [error] [client 169.229.3.91] mod_wsgi (pid=23348): Exception occurred processing WSGI script '/home/ec2-user/YakFrequency/yakApp.wsgi'.
+[Mon Aug 01 09:43:52 2016] [error] [client 169.229.3.91] Traceback (most recent call last):
+[Mon Aug 01 09:43:52 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1836, in __call__
+[Mon Aug 01 09:43:52 2016] [error] [client 169.229.3.91]     return self.wsgi_app(environ, start_response)
+[Mon Aug 01 09:43:52 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1812, in wsgi_app
+[Mon Aug 01 09:43:52 2016] [error] [client 169.229.3.91]     ctx = self.request_context(environ)
+[Mon Aug 01 09:43:52 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1773, in request_context
+[Mon Aug 01 09:43:52 2016] [error] [client 169.229.3.91]     return RequestContext(self, environ)
+[Mon Aug 01 09:43:52 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/flask/ctx.py", line 224, in __init__
+[Mon Aug 01 09:43:52 2016] [error] [client 169.229.3.91]     self.url_adapter = app.create_url_adapter(self.request)
+[Mon Aug 01 09:43:52 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1602, in create_url_adapter
+[Mon Aug 01 09:43:52 2016] [error] [client 169.229.3.91]     server_name=self.config['SERVER_NAME'])
+[Mon Aug 01 09:43:52 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/werkzeug/routing.py", line 1327, in bind_to_environ
+[Mon Aug 01 09:43:52 2016] [error] [client 169.229.3.91]     query_args=query_args)
+[Mon Aug 01 09:43:52 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/werkzeug/routing.py", line 1241, in bind
+[Mon Aug 01 09:43:52 2016] [error] [client 169.229.3.91]     url_scheme, path_info, default_method, query_args)
+[Mon Aug 01 09:43:52 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/werkzeug/routing.py", line 1367, in __init__
+[Mon Aug 01 09:43:52 2016] [error] [client 169.229.3.91]     self.default_method = to_unicode(default_method)
+[Mon Aug 01 09:43:52 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/werkzeug/_compat.py", line 206, in to_unicode
+[Mon Aug 01 09:43:52 2016] [error] [client 169.229.3.91]     return x.decode(charset, errors)
+[Mon Aug 01 09:43:52 2016] [error] [client 169.229.3.91] UnicodeDecodeError: 'ascii' codec can't decode byte 0xd9 in position 0: ordinal not in range(128)
+[Thu Aug 04 14:10:13 2016] [error] [client 63.85.168.52] Invalid URI in request GET /../../../../../../../mnt/mtd/juu1 HTTP/1.1
+[Sat Aug 06 09:21:15 2016] [error] [client 169.229.3.91] Invalid URI in request sm\xaf0\x8c\x92P\xcf\xda^a\xe6\xdb8\vsE\xac\x9b\xa0jm
+[Sun Aug 07 17:02:27 2016] [error] [client 141.212.122.16] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /x
+[Wed Aug 10 02:31:36 2016] [error] [client 113.240.250.156] mod_wsgi (pid=2832): Exception occurred processing WSGI script '/home/ec2-user/YakFrequency/yakApp.wsgi'.
+[Wed Aug 10 02:31:36 2016] [error] [client 113.240.250.156] Traceback (most recent call last):
+[Wed Aug 10 02:31:36 2016] [error] [client 113.240.250.156]   File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1836, in __call__
+[Wed Aug 10 02:31:36 2016] [error] [client 113.240.250.156]     return self.wsgi_app(environ, start_response)
+[Wed Aug 10 02:31:36 2016] [error] [client 113.240.250.156]   File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1812, in wsgi_app
+[Wed Aug 10 02:31:36 2016] [error] [client 113.240.250.156]     ctx = self.request_context(environ)
+[Wed Aug 10 02:31:36 2016] [error] [client 113.240.250.156]   File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1773, in request_context
+[Wed Aug 10 02:31:36 2016] [error] [client 113.240.250.156]     return RequestContext(self, environ)
+[Wed Aug 10 02:31:36 2016] [error] [client 113.240.250.156]   File "/usr/local/lib/python2.7/site-packages/flask/ctx.py", line 224, in __init__
+[Wed Aug 10 02:31:36 2016] [error] [client 113.240.250.156]     self.url_adapter = app.create_url_adapter(self.request)
+[Wed Aug 10 02:31:36 2016] [error] [client 113.240.250.156]   File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1602, in create_url_adapter
+[Wed Aug 10 02:31:36 2016] [error] [client 113.240.250.156]     server_name=self.config['SERVER_NAME'])
+[Wed Aug 10 02:31:36 2016] [error] [client 113.240.250.156]   File "/usr/local/lib/python2.7/site-packages/werkzeug/routing.py", line 1327, in bind_to_environ
+[Wed Aug 10 02:31:36 2016] [error] [client 113.240.250.156]     query_args=query_args)
+[Wed Aug 10 02:31:36 2016] [error] [client 113.240.250.156]   File "/usr/local/lib/python2.7/site-packages/werkzeug/routing.py", line 1241, in bind
+[Wed Aug 10 02:31:36 2016] [error] [client 113.240.250.156]     url_scheme, path_info, default_method, query_args)
+[Wed Aug 10 02:31:36 2016] [error] [client 113.240.250.156]   File "/usr/local/lib/python2.7/site-packages/werkzeug/routing.py", line 1367, in __init__
+[Wed Aug 10 02:31:36 2016] [error] [client 113.240.250.156]     self.default_method = to_unicode(default_method)
+[Wed Aug 10 02:31:36 2016] [error] [client 113.240.250.156]   File "/usr/local/lib/python2.7/site-packages/werkzeug/_compat.py", line 206, in to_unicode
+[Wed Aug 10 02:31:36 2016] [error] [client 113.240.250.156]     return x.decode(charset, errors)
+[Wed Aug 10 02:31:36 2016] [error] [client 113.240.250.156] UnicodeDecodeError: 'ascii' codec can't decode byte 0x80 in position 0: ordinal not in range(128)
+[Wed Aug 10 03:40:50 2016] [error] [client 185.125.32.54] script not found or unable to stat: /var/www/cgi-bin/login
+[Wed Aug 10 03:41:47 2016] [error] [client 185.125.32.54] script not found or unable to stat: /var/www/cgi-bin/login
+[Wed Aug 10 05:54:09 2016] [error] [client 169.229.3.91] Invalid URI in request \xac\x98\x18-Sg\xe7\xd211ZXOYc3\xb4_I\xb7\x9fr\x89bX,\xe0\x07 \xbc|\xa9\xa5E\x83\xf2\xdfHk\x8cX\xb9\x86=\xfe\x9d\x8e<f]\x9b\b\xd8\xad\x1fbO\x06\xd90\x95\xdd
+[Sun Aug 14 14:04:23 2016] [error] [client 141.212.122.128] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /x
+[Sat Aug 20 06:00:44 2016] [error] [client 173.227.0.76] script not found or unable to stat: /var/www/cgi-bin/test-cgi
+[Sun Aug 21 08:22:38 2016] [error] [client 141.212.122.16] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /x
+[Mon Aug 22 03:46:38 2016] [error] [client 169.229.3.91] mod_wsgi (pid=24218): Exception occurred processing WSGI script '/home/ec2-user/YakFrequency/yakApp.wsgi'.
+[Mon Aug 22 03:46:38 2016] [error] [client 169.229.3.91] Traceback (most recent call last):
+[Mon Aug 22 03:46:38 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1836, in __call__
+[Mon Aug 22 03:46:38 2016] [error] [client 169.229.3.91]     return self.wsgi_app(environ, start_response)
+[Mon Aug 22 03:46:38 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1812, in wsgi_app
+[Mon Aug 22 03:46:38 2016] [error] [client 169.229.3.91]     ctx = self.request_context(environ)
+[Mon Aug 22 03:46:38 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1773, in request_context
+[Mon Aug 22 03:46:38 2016] [error] [client 169.229.3.91]     return RequestContext(self, environ)
+[Mon Aug 22 03:46:38 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/flask/ctx.py", line 224, in __init__
+[Mon Aug 22 03:46:38 2016] [error] [client 169.229.3.91]     self.url_adapter = app.create_url_adapter(self.request)
+[Mon Aug 22 03:46:38 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1602, in create_url_adapter
+[Mon Aug 22 03:46:38 2016] [error] [client 169.229.3.91]     server_name=self.config['SERVER_NAME'])
+[Mon Aug 22 03:46:38 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/werkzeug/routing.py", line 1327, in bind_to_environ
+[Mon Aug 22 03:46:38 2016] [error] [client 169.229.3.91]     query_args=query_args)
+[Mon Aug 22 03:46:38 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/werkzeug/routing.py", line 1241, in bind
+[Mon Aug 22 03:46:38 2016] [error] [client 169.229.3.91]     url_scheme, path_info, default_method, query_args)
+[Mon Aug 22 03:46:38 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/werkzeug/routing.py", line 1367, in __init__
+[Mon Aug 22 03:46:38 2016] [error] [client 169.229.3.91]     self.default_method = to_unicode(default_method)
+[Mon Aug 22 03:46:38 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/werkzeug/_compat.py", line 206, in to_unicode
+[Mon Aug 22 03:46:38 2016] [error] [client 169.229.3.91]     return x.decode(charset, errors)
+[Mon Aug 22 03:46:38 2016] [error] [client 169.229.3.91] UnicodeDecodeError: 'ascii' codec can't decode byte 0x85 in position 3: ordinal not in range(128)
+[Tue Aug 23 05:47:25 2016] [error] [client 115.28.224.233] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /w00tw00t.at.ISC.SANS.DFind:)
+[Tue Aug 23 08:53:45 2016] [error] [client 108.165.2.22] Invalid URI in request GET HTTP/1.1 HTTP/1.1
+[Thu Aug 25 14:53:17 2016] [error] [client 27.118.28.244] Invalid URI in request GET HTTP/1.1 HTTP/1.1
+[Fri Aug 26 15:09:06 2016] [error] [client 192.200.215.162] script not found or unable to stat: /var/www/cgi-bin/php
+[Fri Aug 26 15:09:06 2016] [error] [client 192.200.215.162] script not found or unable to stat: /var/www/cgi-bin/php
+[Mon Aug 29 07:39:15 2016] [error] [client 66.185.30.84] Invalid URI in request GET HTTP/1.1 HTTP/1.1
+[Sun Sep 04 14:40:27 2016] [error] [client 141.212.122.80] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /x
+[Sun Sep 11 10:03:27 2016] [error] [client 141.212.122.80] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /x
+[Sun Sep 18 21:53:51 2016] [error] [client 141.212.122.64] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /x
+[Wed Sep 21 03:40:41 2016] [error] [client 169.229.3.91] mod_wsgi (pid=9491): Exception occurred processing WSGI script '/home/ec2-user/YakFrequency/yakApp.wsgi'.
+[Wed Sep 21 03:40:41 2016] [error] [client 169.229.3.91] Traceback (most recent call last):
+[Wed Sep 21 03:40:41 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1836, in __call__
+[Wed Sep 21 03:40:41 2016] [error] [client 169.229.3.91]     return self.wsgi_app(environ, start_response)
+[Wed Sep 21 03:40:41 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1812, in wsgi_app
+[Wed Sep 21 03:40:41 2016] [error] [client 169.229.3.91]     ctx = self.request_context(environ)
+[Wed Sep 21 03:40:41 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1773, in request_context
+[Wed Sep 21 03:40:41 2016] [error] [client 169.229.3.91]     return RequestContext(self, environ)
+[Wed Sep 21 03:40:41 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/flask/ctx.py", line 224, in __init__
+[Wed Sep 21 03:40:41 2016] [error] [client 169.229.3.91]     self.url_adapter = app.create_url_adapter(self.request)
+[Wed Sep 21 03:40:41 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1602, in create_url_adapter
+[Wed Sep 21 03:40:41 2016] [error] [client 169.229.3.91]     server_name=self.config['SERVER_NAME'])
+[Wed Sep 21 03:40:41 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/werkzeug/routing.py", line 1327, in bind_to_environ
+[Wed Sep 21 03:40:41 2016] [error] [client 169.229.3.91]     query_args=query_args)
+[Wed Sep 21 03:40:41 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/werkzeug/routing.py", line 1241, in bind
+[Wed Sep 21 03:40:41 2016] [error] [client 169.229.3.91]     url_scheme, path_info, default_method, query_args)
+[Wed Sep 21 03:40:41 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/werkzeug/routing.py", line 1367, in __init__
+[Wed Sep 21 03:40:41 2016] [error] [client 169.229.3.91]     self.default_method = to_unicode(default_method)
+[Wed Sep 21 03:40:41 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/werkzeug/_compat.py", line 206, in to_unicode
+[Wed Sep 21 03:40:41 2016] [error] [client 169.229.3.91]     return x.decode(charset, errors)
+[Wed Sep 21 03:40:41 2016] [error] [client 169.229.3.91] UnicodeDecodeError: 'ascii' codec can't decode byte 0xf6 in position 0: ordinal not in range(128)
+[Sun Sep 25 17:40:14 2016] [error] [client 141.212.122.160] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /x
+[Fri Sep 30 06:28:36 2016] [error] [client 169.229.3.91] request failed: error reading the headers
+[Sat Oct 01 14:28:43 2016] [error] [client 208.64.253.242] Invalid URI in request GET HTTP/1.1 HTTP/1.1
+[Sun Oct 02 16:36:28 2016] [error] [client 141.212.122.96] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /x
+[Wed Oct 05 06:35:59 2016] [error] [client 169.229.3.91] request failed: error reading the headers
+[Sun Oct 09 12:43:35 2016] [error] [client 141.212.122.16] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /x
+[Mon Oct 10 17:15:11 2016] [error] [client 94.226.171.8] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /w00tw00t.at.ISC.SANS.DFind:)
+[Sun Oct 16 11:00:26 2016] [error] [client 141.212.122.80] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /x
+[Tue Oct 18 17:48:59 2016] [error] [client 187.252.230.161] Invalid URI in request GET /../../../../../../../mnt/mtd/qt HTTP/1.0
+[Sun Oct 23 10:52:22 2016] [error] [client 187.161.175.132] Invalid URI in request GET /../../../../../../../mnt/mtd/qt HTTP/1.0
+[Sun Oct 23 11:55:44 2016] [error] [client 141.212.122.160] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /x
+[Wed Oct 26 09:36:38 2016] [error] [client 169.229.3.91] request failed: error reading the headers
+[Thu Oct 27 17:43:09 2016] [error] [client 189.215.246.185] Invalid URI in request GET /../../../../../../../mnt/mtd/qt HTTP/1.0
+[Sat Oct 29 18:14:11 2016] [error] [client 182.48.105.214] script not found or unable to stat: /var/www/cgi-bin/nobody
+[Sun Oct 30 20:52:11 2016] [error] [client 141.212.122.96] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /x
+[Mon Oct 31 22:30:27 2016] [error] [client 187.161.213.184] Invalid URI in request GET /../../../../../../../mnt/mtd/qt HTTP/1.0
+[Wed Nov 02 11:42:38 2016] [error] [client 54.249.17.209] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): *
+[Thu Nov 03 05:57:49 2016] [error] [client 104.130.140.75] request failed: error reading the headers
+[Thu Nov 03 20:58:31 2016] [error] [client 116.193.152.124] request failed: error reading the headers
+[Sat Nov 05 05:00:51 2016] [error] [client 201.166.200.43] Invalid URI in request GET /../../../../../../../mnt/mtd/qt HTTP/1.0
+[Mon Nov 07 05:06:55 2016] [error] [client 220.202.123.178] Invalid URI in request GET HTTP/1.1 HTTP/1.1
+[Mon Nov 07 05:06:58 2016] [error] [client 220.202.123.178] script not found or unable to stat: /var/www/cgi-bin/test-cgi
+[Thu Nov 10 18:58:03 2016] [error] [client 187.160.30.8] Invalid URI in request GET /../../../../../../../mnt/mtd/qt HTTP/1.0
+[Sun Nov 13 10:41:58 2016] [error] [client 141.212.122.128] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /x
+[Fri Nov 18 09:07:11 2016] [error] [client 169.229.3.91] mod_wsgi (pid=7529): Exception occurred processing WSGI script '/home/ec2-user/YakFrequency/yakApp.wsgi'.
+[Fri Nov 18 09:07:11 2016] [error] [client 169.229.3.91] Traceback (most recent call last):
+[Fri Nov 18 09:07:11 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1836, in __call__
+[Fri Nov 18 09:07:11 2016] [error] [client 169.229.3.91]     return self.wsgi_app(environ, start_response)
+[Fri Nov 18 09:07:11 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1812, in wsgi_app
+[Fri Nov 18 09:07:11 2016] [error] [client 169.229.3.91]     ctx = self.request_context(environ)
+[Fri Nov 18 09:07:11 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1773, in request_context
+[Fri Nov 18 09:07:11 2016] [error] [client 169.229.3.91]     return RequestContext(self, environ)
+[Fri Nov 18 09:07:11 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/flask/ctx.py", line 224, in __init__
+[Fri Nov 18 09:07:11 2016] [error] [client 169.229.3.91]     self.url_adapter = app.create_url_adapter(self.request)
+[Fri Nov 18 09:07:11 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1602, in create_url_adapter
+[Fri Nov 18 09:07:11 2016] [error] [client 169.229.3.91]     server_name=self.config['SERVER_NAME'])
+[Fri Nov 18 09:07:11 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/werkzeug/routing.py", line 1327, in bind_to_environ
+[Fri Nov 18 09:07:11 2016] [error] [client 169.229.3.91]     query_args=query_args)
+[Fri Nov 18 09:07:11 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/werkzeug/routing.py", line 1241, in bind
+[Fri Nov 18 09:07:11 2016] [error] [client 169.229.3.91]     url_scheme, path_info, default_method, query_args)
+[Fri Nov 18 09:07:11 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/werkzeug/routing.py", line 1367, in __init__
+[Fri Nov 18 09:07:11 2016] [error] [client 169.229.3.91]     self.default_method = to_unicode(default_method)
+[Fri Nov 18 09:07:11 2016] [error] [client 169.229.3.91]   File "/usr/local/lib/python2.7/site-packages/werkzeug/_compat.py", line 206, in to_unicode
+[Fri Nov 18 09:07:11 2016] [error] [client 169.229.3.91]     return x.decode(charset, errors)
+[Fri Nov 18 09:07:11 2016] [error] [client 169.229.3.91] UnicodeDecodeError: 'ascii' codec can't decode byte 0xbc in position 0: ordinal not in range(128)
+[Sun Nov 20 02:40:11 2016] [error] [client 141.212.122.64] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /x
+[Wed Nov 23 08:10:54 2016] [error] [client 198.154.103.34] script not found or unable to stat: /var/www/cgi-bin/test-cgi
+[Thu Nov 24 12:45:13 2016] [error] [client 46.105.97.78] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /w00tw00t.at.ISC.SANS.DFind:)
+[Fri Nov 25 07:30:59 2016] [error] [client 37.187.84.236] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /w00tw00t.at.ISC.SANS.DFind:)
+[Sat Nov 26 04:00:54 2016] [error] [client 42.236.45.154] request failed: error reading the headers
+[Sat Nov 26 08:44:33 2016] [error] [client 61.216.2.13] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /
+[Sun Nov 27 09:03:11 2016] [error] [client 141.212.122.64] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /x
